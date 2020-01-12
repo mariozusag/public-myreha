@@ -1,0 +1,1802 @@
+.wavemoving * { box-sizing: border-box; }
+
+.wavemoving {
+  pointer-events: none;overflow: hidden;  background-color: rgba(255,255,255,0.0);  width: 244px;  position: relative;  height: 53px;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  top: -1px;  height: 55px;  width: 121px;  position: absolute;  margin: 0;  left: -1px;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 .line {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  bottom: 25.45%;  height: 43.64%;  width: 3.31%;  position: absolute;  margin: 0;  left: 4.96%;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 .line1 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  top: 33.64%;  height: 32.73%;  width: 2.48%;  position: absolute;  margin: 0;  left: 0px;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 .line2 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  top: 12.73%;  height: 61.82%;  width: 3.31%;  position: absolute;  margin: 0;  left: 12.40%;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 .line3 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  bottom: 1.82%;  height: 85.45%;  width: 3.31%;  position: absolute;  margin: 0;  left: 19.83%;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 .line4 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  top: 5.45%;  height: 70.91%;  width: 2.48%;  position: absolute;  margin: 0;  left: 25.62%;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 .line5 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  bottom: 36.36%;  height: 21.82%;  width: 2.48%;  position: absolute;  margin: 0;  left: 44.63%;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 .line6 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  right: 40.50%;  bottom: 12.73%;  height: 70.91%;  width: 2.48%;  position: absolute;  margin: 0;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 .line7 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  right: 33.88%;  top: 0px;  height: 85.45%;  width: 3.31%;  position: absolute;  margin: 0;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 .line8 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  right: 28.10%;  bottom: 0px;  height: 70.91%;  width: 2.48%;  position: absolute;  margin: 0;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 .line9 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  right: 21.49%;  bottom: 25.45%;  height: 43.64%;  width: 3.31%;  position: absolute;  margin: 0;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 .line10 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  top: 25.45%;  height: 43.64%;  width: 3.31%;  position: absolute;  margin: 0;  left: 31.40%;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 .line11 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  top: 25.45%;  height: 43.64%;  width: 3.31%;  position: absolute;  margin: 0;  left: 39.67%;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 .linecopy {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  right: 13.22%;  top: 25.45%;  height: 43.64%;  width: 3.31%;  position: absolute;  margin: 0;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 .linecopy2 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  right: 7.44%;  top: 25.45%;  height: 43.64%;  width: 3.31%;  position: absolute;  margin: 0;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 .line12 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  right: 47.11%;  bottom: 36.36%;  height: 21.82%;  width: 2.48%;  position: absolute;  margin: 0;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group6 .linecopy3 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  right: 0px;  bottom: 36.36%;  height: 21.82%;  width: 2.48%;  position: absolute;  margin: 0;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  top: -1px;  height: 55px;  width: 121px;  position: absolute;  margin: 0;  left: 124px;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 .line13 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  bottom: 25.45%;  height: 43.64%;  width: 3.31%;  position: absolute;  margin: 0;  left: 4.96%;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 .line14 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  top: 33.64%;  height: 32.73%;  width: 2.48%;  position: absolute;  margin: 0;  left: 0px;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 .line15 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  top: 12.73%;  height: 61.82%;  width: 3.31%;  position: absolute;  margin: 0;  left: 12.40%;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 .line16 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  bottom: 1.82%;  height: 85.45%;  width: 3.31%;  position: absolute;  margin: 0;  left: 19.83%;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 .line17 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  top: 5.45%;  height: 70.91%;  width: 2.48%;  position: absolute;  margin: 0;  left: 25.62%;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 .line18 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  bottom: 36.36%;  height: 21.82%;  width: 2.48%;  position: absolute;  margin: 0;  left: 44.63%;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 .line19 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  right: 40.50%;  bottom: 12.73%;  height: 70.91%;  width: 2.48%;  position: absolute;  margin: 0;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 .line20 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  right: 33.88%;  top: 0px;  height: 85.45%;  width: 3.31%;  position: absolute;  margin: 0;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 .line21 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  right: 28.10%;  bottom: 0px;  height: 70.91%;  width: 2.48%;  position: absolute;  margin: 0;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 .line22 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  right: 21.49%;  bottom: 25.45%;  height: 43.64%;  width: 3.31%;  position: absolute;  margin: 0;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 .line23 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  top: 25.45%;  height: 43.64%;  width: 3.31%;  position: absolute;  margin: 0;  left: 31.40%;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 .line24 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  top: 25.45%;  height: 43.64%;  width: 3.31%;  position: absolute;  margin: 0;  left: 39.67%;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 .linecopy1 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  right: 13.22%;  top: 25.45%;  height: 43.64%;  width: 3.31%;  position: absolute;  margin: 0;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 .linecopy21 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  right: 7.44%;  top: 25.45%;  height: 43.64%;  width: 3.31%;  position: absolute;  margin: 0;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 .line25 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  right: 47.11%;  bottom: 36.36%;  height: 21.82%;  width: 2.48%;  position: absolute;  margin: 0;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving .group61 .linecopy31 {
+  pointer-events: none;  background-color: rgba(255,255,255,0.0);  right: 0px;  bottom: 36.36%;  height: 21.82%;  width: 2.48%;  position: absolute;  margin: 0;  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}
+
+.wavemoving.state0-to-keyframe1 .group6 .line1 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0.999;max-width: 90681px;
+}
+
+.wavemoving.state0-to-keyframe1 .group61 .line14 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.state0-to-keyframe1 .group61 .linecopy31 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.state0-to-keyframe1 .group61 .line25 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.state0-to-keyframe1 .group61 .linecopy21 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.state0-to-keyframe1 .group61 .linecopy1 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.state0-to-keyframe1 .group61 .line24 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.state0-to-keyframe1 .group61 .line23 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.state0-to-keyframe1 .group61 .line22 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.state0-to-keyframe1 .group61 .line21 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.state0-to-keyframe1 .group61 .line20 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.state0-to-keyframe1 .group61 .line19 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.state0-to-keyframe1 .group61 .line18 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.state0-to-keyframe1 .group61 .line17 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.state0-to-keyframe1 .group61 .line16 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.state0-to-keyframe1 .group61 .line15 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.state0-to-keyframe1 .group61 .line13 {  transition: all 0.001s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group6 .line1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group61 .line14 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 1;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group61 .linecopy31 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 33406px;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group61 .line25 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 72099px;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group61 .linecopy21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 39715px;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group61 .linecopy1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 63329px;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group61 .line24 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 96544px;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group61 .line23 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 87301px;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group61 .line22 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 87161px;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group61 .line21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 92802px;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group61 .line20 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 89865px;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group61 .line19 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 25019px;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group61 .line18 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 82310px;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group61 .line17 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 23800px;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group61 .line16 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 62001px;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group61 .line15 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 96526px;
+}
+
+.wavemoving.keyframe1-to-keyframe2 .group61 .line13 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 76728px;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group61 .linecopy1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 39743px;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group61 .linecopy21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 71035px;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group61 .line24 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 88458px;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group61 .line18 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 90081px;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group61 .line13 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 1;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group61 .line25 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 43212px;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group61 .line19 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 69668px;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group61 .line20 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 68912px;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group61 .linecopy31 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 64862px;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group61 .line15 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 66651px;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group61 .line21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 95475px;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group61 .line22 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 24592px;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group61 .line16 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 15506px;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group6 .line1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 59291px;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group61 .line17 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 14182px;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group61 .line23 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 84001px;
+}
+
+.wavemoving.keyframe2-to-keyframe3 .group6 .line {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group61 .line17 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 98484px;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group61 .linecopy21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 11324px;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group61 .line24 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 34028px;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group61 .line18 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 89649px;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group61 .line25 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 45010px;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group61 .line19 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 55256px;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group61 .line20 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 30261px;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group61 .linecopy31 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 93188px;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group61 .line15 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 1;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group61 .line21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 28287px;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group6 .line {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 15234px;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group61 .line22 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 51048px;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group61 .line16 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 87281px;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group61 .linecopy1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 42134px;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group61 .line23 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 63580px;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group6 .line1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 76718px;
+}
+
+.wavemoving.keyframe3-to-keyframe4 .group6 .line2 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group61 .line23 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 46196px;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group61 .linecopy21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 52491px;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group61 .line24 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 99274px;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group61 .line18 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 39735px;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group61 .line25 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 16910px;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group61 .line19 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 40614px;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group61 .line20 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 40923px;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group61 .linecopy31 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 47252px;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group61 .line21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 53298px;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group6 .line {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 68048px;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group6 .line2 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 73864px;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group61 .line16 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 1;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group61 .line22 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 82813px;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group6 .line1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 38935px;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group61 .linecopy1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 74308px;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group61 .line17 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 76570px;
+}
+
+.wavemoving.keyframe4-to-keyframe5 .group6 .line3 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group61 .linecopy1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 33013px;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group61 .linecopy21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 27563px;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group61 .line24 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 73896px;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group61 .line18 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 26189px;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group61 .line25 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 35632px;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group61 .line19 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 70325px;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group61 .line20 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 39250px;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group6 .line3 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 45761px;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group61 .linecopy31 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 38011px;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group61 .line21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 35142px;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group6 .line {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 22982px;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group6 .line2 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 89665px;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group61 .line22 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 33486px;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group6 .line1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 74732px;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group61 .line17 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 1;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group61 .line23 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 1;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group6 .line4 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.keyframe5-to-keyframe6 .group6 .line10 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group6 .line10 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 84851px;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group61 .line24 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 1;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group61 .line18 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 80027px;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group61 .linecopy21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 23454px;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group61 .line25 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 48452px;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group61 .line19 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 57248px;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group6 .line4 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 13603px;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group61 .line20 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 57371px;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group6 .line3 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 50951px;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group61 .linecopy31 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 33333px;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group61 .line21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 56763px;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group6 .line {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 75117px;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group6 .line2 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 98389px;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group61 .line22 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 16383px;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group61 .linecopy1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 12109px;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group6 .line1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 52612px;
+}
+
+.wavemoving.keyframe6-to-keyframe7 .group6 .line11 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group6 .line10 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 94976px;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group61 .linecopy21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 50641px;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group61 .line18 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 1;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group61 .line25 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 29117px;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group61 .line19 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 48282px;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group6 .line4 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 65036px;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group61 .line20 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 74145px;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group6 .line3 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 21783px;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group61 .linecopy31 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 69622px;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group61 .line21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 43319px;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group6 .line {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 58052px;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group6 .line2 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 88672px;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group61 .line22 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 28511px;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group6 .line11 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 89164px;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group61 .linecopy1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 76143px;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group6 .line1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 24589px;
+}
+
+.wavemoving.keyframe7-to-keyframe8 .group6 .line5 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group6 .line10 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 54816px;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group61 .linecopy21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 56555px;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group6 .line5 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 40616px;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group61 .line25 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 1;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group61 .line19 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 77779px;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group6 .line4 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 57911px;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group61 .line20 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 56805px;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group6 .line3 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 35976px;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group61 .linecopy31 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 90293px;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group61 .line21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 36509px;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group6 .line {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 47189px;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group6 .line2 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 24335px;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group61 .line22 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 51762px;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group6 .line11 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 83716px;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group61 .linecopy1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 74006px;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group6 .line1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 31290px;
+}
+
+.wavemoving.keyframe8-to-keyframe9 .group6 .line12 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group6 .line10 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 76894px;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group61 .linecopy21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 23369px;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group6 .line5 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 72013px;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group6 .line12 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 61415px;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group61 .line19 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 1;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group6 .line4 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 86644px;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group61 .line20 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 35467px;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group6 .line3 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 79166px;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group61 .linecopy31 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 99882px;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group61 .line21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 97205px;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group6 .line {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 89011px;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group6 .line2 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 91861px;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group61 .line22 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 81528px;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group6 .line11 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 57328px;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group61 .linecopy1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 18070px;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group6 .line1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 17291px;
+}
+
+.wavemoving.keyframe9-to-keyframe10 .group6 .line6 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group6 .line6 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 98292px;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group6 .line10 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 83356px;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group61 .linecopy21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 19804px;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group6 .line5 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 97831px;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group6 .line12 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 77303px;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group6 .line4 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 23131px;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group61 .line20 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 1;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group6 .line3 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 30107px;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group61 .linecopy31 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 28268px;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group61 .line21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 89849px;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group6 .line {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 45098px;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group6 .line2 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 30319px;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group61 .line22 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 36851px;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group6 .line11 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 31940px;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group61 .linecopy1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 74411px;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group6 .line1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 73254px;
+}
+
+.wavemoving.keyframe10-to-keyframe11 .group6 .line7 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group6 .line6 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 71914px;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group6 .line10 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 18876px;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group61 .linecopy21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 40591px;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group6 .line5 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 44161px;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group6 .line12 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 41144px;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group6 .line4 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 98015px;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group6 .line3 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 65777px;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group61 .linecopy31 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 38542px;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group61 .line21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 1;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group6 .line {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 63242px;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group6 .line2 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 41616px;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group61 .line22 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 98717px;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group6 .line11 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 82259px;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group6 .line7 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 44408px;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group61 .linecopy1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 16266px;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group6 .line1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 58243px;
+}
+
+.wavemoving.keyframe11-to-keyframe12 .group6 .line8 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group6 .line6 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 68735px;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group6 .line10 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 35798px;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group61 .linecopy21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 56460px;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group6 .line5 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 15537px;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group6 .line12 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 90506px;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group6 .line4 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 38741px;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group6 .line3 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 21035px;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group61 .linecopy31 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 37619px;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group6 .line {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 69363px;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group6 .line2 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 29048px;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group61 .line22 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 1;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group6 .line11 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 82828px;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group6 .line7 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 65490px;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group61 .linecopy1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 60367px;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group6 .line1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 57971px;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group6 .line8 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 83973px;
+}
+
+.wavemoving.keyframe12-to-keyframe13 .group6 .line9 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group6 .line6 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 22025px;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group6 .line10 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 96858px;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group61 .linecopy21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 10233px;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group6 .line5 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 29030px;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group6 .line12 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 17046px;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group6 .line4 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 64915px;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group6 .line9 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 78448px;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group6 .line3 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 30574px;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group61 .linecopy31 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 84817px;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group6 .line {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 56515px;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group6 .line2 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.007;max-width: 38301px;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group6 .line11 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 15789px;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group6 .line8 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 77823px;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group6 .line7 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 82064px;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group61 .linecopy1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 1;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group6 .line1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 58732px;
+}
+
+.wavemoving.keyframe13-to-keyframe14 .group6 .linecopy {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group6 .line6 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 97165px;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group6 .line10 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 93820px;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group61 .linecopy21 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 1;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group6 .line5 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 89118px;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group6 .line12 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 26972px;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group6 .line4 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 62383px;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group6 .line9 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 99757px;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group6 .line3 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.002;max-width: 20467px;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group61 .linecopy31 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 55411px;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group6 .linecopy {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 97744px;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group6 .line {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 58381px;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group6 .line2 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.008;max-width: 20642px;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group6 .line11 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 15300px;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group6 .line8 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 71618px;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group6 .line7 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 75859px;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group6 .line1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 97008px;
+}
+
+.wavemoving.keyframe14-to-keyframe15 .group6 .linecopy2 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group6 .line6 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 91665px;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group6 .line10 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 65820px;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group6 .line5 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 45725px;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group6 .line12 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 11127px;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group6 .line4 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 79996px;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group6 .line9 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 35172px;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group6 .line3 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 40849px;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group61 .linecopy31 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 1;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group6 .linecopy {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 62012px;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group6 .line {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.006;max-width: 57079px;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group6 .line2 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.004;max-width: 83556px;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group6 .line11 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 52093px;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group6 .line8 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.003;max-width: 19003px;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group6 .line7 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.005;max-width: 58845px;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group6 .line1 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.001;max-width: 41750px;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group6 .linecopy2 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0.009;max-width: 10464px;
+}
+
+.wavemoving.keyframe15-to-keyframe16 .group6 .linecopy3 {  transition: all 0.1s ease-in-out 0.0s;  opacity: 0;
+}
+
+.wavemoving.state0 {
+  
+}
+.wavemoving.keyframe1 .group61 .line22 {
+  opacity: 0.0044;
+}
+.wavemoving.keyframe1 .group61 .line14 {
+  opacity: 0.0028;
+}
+.wavemoving.keyframe1 .group61 .line20 {
+  opacity: 0.008;
+}
+.wavemoving.keyframe1 .group61 .line18 {
+  opacity: 0.0030;
+}
+.wavemoving.keyframe1 .group61 .line19 {
+  opacity: 0.0085;
+}
+.wavemoving.keyframe1 .group61 .linecopy1 {
+  opacity: 0.0038;
+}
+.wavemoving.keyframe1 .group61 .linecopy21 {
+  opacity: 0.0058;
+}
+.wavemoving.keyframe1 .group61 .linecopy31 {
+  opacity: 0.0072;
+}
+.wavemoving.keyframe1 .group61 .line23 {
+  opacity: 0.0036;
+}
+.wavemoving.keyframe1 .group61 .line24 {
+  opacity: 0.0083;
+}
+.wavemoving.keyframe1 .group61 .line25 {
+  opacity: 0.0080;
+}
+.wavemoving.keyframe1 .group61 .line13 {
+  opacity: 0.0042;
+}
+.wavemoving.keyframe1 .group61 .line21 {
+  opacity: 0.0080;
+}
+.wavemoving.keyframe1 .group61 .line15 {
+  opacity: 0.0062;
+}
+.wavemoving.keyframe1 .group61 .line16 {
+  opacity: 0.0095;
+}
+.wavemoving.keyframe1 .group61 .line17 {
+  opacity: 0.0013;
+}
+.wavemoving.keyframe2 .group6 .line1 {
+  opacity: 0.0020;
+}
+.wavemoving.keyframe2 .group61 .line20 {
+  opacity: 0.0011;
+}
+.wavemoving.keyframe2 .group61 .line18 {
+  opacity: 0.0052;
+}
+.wavemoving.keyframe2 .group61 .line19 {
+  opacity: 0.001;
+}
+.wavemoving.keyframe2 .group61 .linecopy1 {
+  opacity: 0.0090;
+}
+.wavemoving.keyframe2 .group61 .linecopy21 {
+  opacity: 0.0031;
+}
+.wavemoving.keyframe2 .group61 .linecopy31 {
+  opacity: 0.0059;
+}
+.wavemoving.keyframe2 .group61 .line23 {
+  opacity: 0.0032;
+}
+.wavemoving.keyframe2 .group61 .line22 {
+  opacity: 0.0043;
+}
+.wavemoving.keyframe2 .group61 .line25 {
+  opacity: 0.0094;
+}
+.wavemoving.keyframe2 .group61 .line24 {
+  opacity: 0.0036;
+}
+.wavemoving.keyframe2 .group61 .line13 {
+  opacity: 0.0076;
+}
+.wavemoving.keyframe2 .group61 .line21 {
+  opacity: 0.0053;
+}
+.wavemoving.keyframe2 .group61 .line15 {
+  opacity: 0.0071;
+}
+.wavemoving.keyframe2 .group61 .line16 {
+  opacity: 0.0026;
+}
+.wavemoving.keyframe2 .group61 .line17 {
+  opacity: 0.0061;
+}
+.wavemoving.keyframe3 .group6 .line1 {
+  opacity: 0.007;
+}
+.wavemoving.keyframe3 .group6 .line {
+  opacity: 0.0075;
+}
+.wavemoving.keyframe3 .group61 .line20 {
+  opacity: 0.0048;
+}
+.wavemoving.keyframe3 .group61 .line18 {
+  opacity: 0.0023;
+}
+.wavemoving.keyframe3 .group61 .line19 {
+  opacity: 0.0081;
+}
+.wavemoving.keyframe3 .group61 .linecopy1 {
+  opacity: 0.0020;
+}
+.wavemoving.keyframe3 .group61 .linecopy21 {
+  opacity: 0.0099;
+}
+.wavemoving.keyframe3 .group61 .linecopy31 {
+  opacity: 0.0041;
+}
+.wavemoving.keyframe3 .group61 .line16 {
+  opacity: 0.0076;
+}
+.wavemoving.keyframe3 .group61 .line25 {
+  opacity: 0.0021;
+}
+.wavemoving.keyframe3 .group61 .line24 {
+  opacity: 0.0041;
+}
+.wavemoving.keyframe3 .group61 .line22 {
+  opacity: 0.0079;
+}
+.wavemoving.keyframe3 .group61 .line21 {
+  opacity: 0.0022;
+}
+.wavemoving.keyframe3 .group61 .line15 {
+  opacity: 0.0020;
+}
+.wavemoving.keyframe3 .group61 .line23 {
+  opacity: 0.0063;
+}
+.wavemoving.keyframe3 .group61 .line17 {
+  opacity: 0.0075;
+}
+.wavemoving.keyframe4 .group6 .line1 {
+  opacity: 0.0075;
+}
+.wavemoving.keyframe4 .group6 .line2 {
+  opacity: 0.006;
+}
+.wavemoving.keyframe4 .group6 .line {
+  opacity: 0.005;
+}
+.wavemoving.keyframe4 .group61 .line18 {
+  opacity: 0.0066;
+}
+.wavemoving.keyframe4 .group61 .line19 {
+  opacity: 0.0034;
+}
+.wavemoving.keyframe4 .group61 .linecopy1 {
+  opacity: 0.0059;
+}
+.wavemoving.keyframe4 .group61 .linecopy21 {
+  opacity: 0.0096;
+}
+.wavemoving.keyframe4 .group61 .linecopy31 {
+  opacity: 0.0096;
+}
+.wavemoving.keyframe4 .group61 .line16 {
+  opacity: 0.0092;
+}
+.wavemoving.keyframe4 .group61 .line25 {
+  opacity: 0.0066;
+}
+.wavemoving.keyframe4 .group61 .line24 {
+  opacity: 0.0079;
+}
+.wavemoving.keyframe4 .group61 .line17 {
+  opacity: 0.0075;
+}
+.wavemoving.keyframe4 .group61 .line21 {
+  opacity: 0.0027;
+}
+.wavemoving.keyframe4 .group61 .line20 {
+  opacity: 0.0096;
+}
+.wavemoving.keyframe4 .group61 .line23 {
+  opacity: 0.0017;
+}
+.wavemoving.keyframe4 .group61 .line22 {
+  opacity: 0.0014;
+}
+.wavemoving.keyframe5 .group6 .line1 {
+  opacity: 0.0049;
+}
+.wavemoving.keyframe5 .group6 .line2 {
+  opacity: 0.0085;
+}
+.wavemoving.keyframe5 .group6 .line {
+  opacity: 0.0055;
+}
+.wavemoving.keyframe5 .group6 .line3 {
+  opacity: 0.0049;
+}
+.wavemoving.keyframe5 .group61 .line18 {
+  opacity: 0.0028;
+}
+.wavemoving.keyframe5 .group61 .line19 {
+  opacity: 0.0036;
+}
+.wavemoving.keyframe5 .group61 .linecopy1 {
+  opacity: 0.0049;
+}
+.wavemoving.keyframe5 .group61 .linecopy21 {
+  opacity: 0.0011;
+}
+.wavemoving.keyframe5 .group61 .linecopy31 {
+  opacity: 0.0012;
+}
+.wavemoving.keyframe5 .group61 .line25 {
+  opacity: 0.0053;
+}
+.wavemoving.keyframe5 .group61 .line24 {
+  opacity: 0.0019;
+}
+.wavemoving.keyframe5 .group61 .line22 {
+  opacity: 0.0063;
+}
+.wavemoving.keyframe5 .group61 .line21 {
+  opacity: 0.0023;
+}
+.wavemoving.keyframe5 .group61 .line20 {
+  opacity: 0.006;
+}
+.wavemoving.keyframe5 .group61 .line23 {
+  opacity: 0.0075;
+}
+.wavemoving.keyframe5 .group61 .line17 {
+  opacity: 0.0097;
+}
+.wavemoving.keyframe6 .group6 .line4 {
+  opacity: 0.0037;
+}
+.wavemoving.keyframe6 .group6 .line1 {
+  opacity: 0.0045;
+}
+.wavemoving.keyframe6 .group6 .line2 {
+  opacity: 0.0050;
+}
+.wavemoving.keyframe6 .group6 .line {
+  opacity: 0.0054;
+}
+.wavemoving.keyframe6 .group6 .line3 {
+  opacity: 0.0061;
+}
+.wavemoving.keyframe6 .group61 .line18 {
+  opacity: 0.0065;
+}
+.wavemoving.keyframe6 .group61 .line19 {
+  opacity: 0.0078;
+}
+.wavemoving.keyframe6 .group61 .linecopy1 {
+  opacity: 0.0098;
+}
+.wavemoving.keyframe6 .group61 .linecopy21 {
+  opacity: 0.0026;
+}
+.wavemoving.keyframe6 .group61 .linecopy31 {
+  opacity: 0.0064;
+}
+.wavemoving.keyframe6 .group61 .line25 {
+  opacity: 0.0069;
+}
+.wavemoving.keyframe6 .group61 .line24 {
+  opacity: 0.0081;
+}
+.wavemoving.keyframe6 .group61 .line21 {
+  opacity: 0.0051;
+}
+.wavemoving.keyframe6 .group61 .line20 {
+  opacity: 0.0049;
+}
+.wavemoving.keyframe6 .group6 .line10 {
+  opacity: 0.0094;
+}
+.wavemoving.keyframe6 .group61 .line22 {
+  opacity: 0.0073;
+}
+.wavemoving.keyframe7 .group6 .line4 {
+  opacity: 0.0054;
+}
+.wavemoving.keyframe7 .group6 .line1 {
+  opacity: 0.0077;
+}
+.wavemoving.keyframe7 .group6 .line2 {
+  opacity: 0.0053;
+}
+.wavemoving.keyframe7 .group6 .line {
+  opacity: 0.0011;
+}
+.wavemoving.keyframe7 .group6 .line3 {
+  opacity: 0.0050;
+}
+.wavemoving.keyframe7 .group61 .line18 {
+  opacity: 0.0023;
+}
+.wavemoving.keyframe7 .group61 .line19 {
+  opacity: 0.0021;
+}
+.wavemoving.keyframe7 .group61 .linecopy1 {
+  opacity: 0.0044;
+}
+.wavemoving.keyframe7 .group61 .linecopy21 {
+  opacity: 0.0076;
+}
+.wavemoving.keyframe7 .group61 .linecopy31 {
+  opacity: 0.0021;
+}
+.wavemoving.keyframe7 .group61 .line25 {
+  opacity: 0.0045;
+}
+.wavemoving.keyframe7 .group61 .line22 {
+  opacity: 0.0040;
+}
+.wavemoving.keyframe7 .group61 .line21 {
+  opacity: 0.0058;
+}
+.wavemoving.keyframe7 .group61 .line20 {
+  opacity: 0.0044;
+}
+.wavemoving.keyframe7 .group6 .line10 {
+  opacity: 0.0076;
+}
+.wavemoving.keyframe7 .group6 .line11 {
+  opacity: 0.0020;
+}
+.wavemoving.keyframe8 .group6 .line4 {
+  opacity: 0.0024;
+}
+.wavemoving.keyframe8 .group6 .line5 {
+  opacity: 0.0032;
+}
+.wavemoving.keyframe8 .group6 .line1 {
+  opacity: 0.0048;
+}
+.wavemoving.keyframe8 .group6 .line2 {
+  opacity: 0.0038;
+}
+.wavemoving.keyframe8 .group6 .line {
+  opacity: 0.0060;
+}
+.wavemoving.keyframe8 .group6 .line3 {
+  opacity: 0.0073;
+}
+.wavemoving.keyframe8 .group61 .line19 {
+  opacity: 0.0066;
+}
+.wavemoving.keyframe8 .group61 .linecopy1 {
+  opacity: 0.0023;
+}
+.wavemoving.keyframe8 .group61 .linecopy21 {
+  opacity: 0.0089;
+}
+.wavemoving.keyframe8 .group61 .linecopy31 {
+  opacity: 0.0091;
+}
+.wavemoving.keyframe8 .group61 .line25 {
+  opacity: 0.0089;
+}
+.wavemoving.keyframe8 .group61 .line22 {
+  opacity: 0.003;
+}
+.wavemoving.keyframe8 .group61 .line21 {
+  opacity: 0.0022;
+}
+.wavemoving.keyframe8 .group61 .line20 {
+  opacity: 0.0084;
+}
+.wavemoving.keyframe8 .group6 .line10 {
+  opacity: 0.0014;
+}
+.wavemoving.keyframe8 .group6 .line11 {
+  opacity: 0.0020;
+}
+.wavemoving.keyframe9 .group6 .line4 {
+  opacity: 0.0053;
+}
+.wavemoving.keyframe9 .group6 .line5 {
+  opacity: 0.0029;
+}
+.wavemoving.keyframe9 .group6 .line1 {
+  opacity: 0.0067;
+}
+.wavemoving.keyframe9 .group6 .line2 {
+  opacity: 0.0062;
+}
+.wavemoving.keyframe9 .group6 .line3 {
+  opacity: 0.0027;
+}
+.wavemoving.keyframe9 .group6 .line12 {
+  opacity: 0.0033;
+}
+.wavemoving.keyframe9 .group6 .line {
+  opacity: 0.0073;
+}
+.wavemoving.keyframe9 .group61 .line19 {
+  opacity: 0.0045;
+}
+.wavemoving.keyframe9 .group61 .linecopy1 {
+  opacity: 0.0031;
+}
+.wavemoving.keyframe9 .group61 .linecopy21 {
+  opacity: 0.0053;
+}
+.wavemoving.keyframe9 .group61 .linecopy31 {
+  opacity: 0.0093;
+}
+.wavemoving.keyframe9 .group61 .line22 {
+  opacity: 0.0071;
+}
+.wavemoving.keyframe9 .group61 .line21 {
+  opacity: 0.0090;
+}
+.wavemoving.keyframe9 .group61 .line20 {
+  opacity: 0.0052;
+}
+.wavemoving.keyframe9 .group6 .line10 {
+  opacity: 0.0044;
+}
+.wavemoving.keyframe9 .group6 .line11 {
+  opacity: 0.0054;
+}
+.wavemoving.keyframe10 .group6 .line4 {
+  opacity: 0.0046;
+}
+.wavemoving.keyframe10 .group6 .line5 {
+  opacity: 0.0037;
+}
+.wavemoving.keyframe10 .group6 .line6 {
+  opacity: 0.0035;
+}
+.wavemoving.keyframe10 .group6 .line1 {
+  opacity: 0.0040;
+}
+.wavemoving.keyframe10 .group6 .line2 {
+  opacity: 0.0070;
+}
+.wavemoving.keyframe10 .group6 .line3 {
+  opacity: 0.0044;
+}
+.wavemoving.keyframe10 .group6 .line12 {
+  opacity: 0.0081;
+}
+.wavemoving.keyframe10 .group6 .line {
+  opacity: 0.0095;
+}
+.wavemoving.keyframe10 .group61 .linecopy1 {
+  opacity: 0.0054;
+}
+.wavemoving.keyframe10 .group61 .linecopy21 {
+  opacity: 0.0052;
+}
+.wavemoving.keyframe10 .group61 .linecopy31 {
+  opacity: 0.0033;
+}
+.wavemoving.keyframe10 .group61 .line22 {
+  opacity: 0.0057;
+}
+.wavemoving.keyframe10 .group61 .line21 {
+  opacity: 0.0035;
+}
+.wavemoving.keyframe10 .group61 .line20 {
+  opacity: 0.0055;
+}
+.wavemoving.keyframe10 .group6 .line10 {
+  opacity: 0.006;
+}
+.wavemoving.keyframe10 .group6 .line11 {
+  opacity: 0.0059;
+}
+.wavemoving.keyframe11 .group6 .line4 {
+  opacity: 0.0082;
+}
+.wavemoving.keyframe11 .group6 .line5 {
+  opacity: 0.0073;
+}
+.wavemoving.keyframe11 .group6 .line6 {
+  opacity: 0.0099;
+}
+.wavemoving.keyframe11 .group6 .line7 {
+  opacity: 0.0054;
+}
+.wavemoving.keyframe11 .group6 .line1 {
+  opacity: 0.0053;
+}
+.wavemoving.keyframe11 .group6 .line2 {
+  opacity: 0.0046;
+}
+.wavemoving.keyframe11 .group6 .line3 {
+  opacity: 0.0056;
+}
+.wavemoving.keyframe11 .group6 .line12 {
+  opacity: 0.0041;
+}
+.wavemoving.keyframe11 .group6 .line {
+  opacity: 0.0072;
+}
+.wavemoving.keyframe11 .group61 .linecopy1 {
+  opacity: 0.0066;
+}
+.wavemoving.keyframe11 .group61 .linecopy21 {
+  opacity: 0.0053;
+}
+.wavemoving.keyframe11 .group61 .linecopy31 {
+  opacity: 0.0099;
+}
+.wavemoving.keyframe11 .group61 .line22 {
+  opacity: 0.0051;
+}
+.wavemoving.keyframe11 .group61 .line21 {
+  opacity: 0.0053;
+}
+.wavemoving.keyframe11 .group6 .line10 {
+  opacity: 0.0041;
+}
+.wavemoving.keyframe11 .group6 .line11 {
+  opacity: 0.008;
+}
+.wavemoving.keyframe12 .group6 .line4 {
+  opacity: 0.0022;
+}
+.wavemoving.keyframe12 .group6 .line5 {
+  opacity: 0.0056;
+}
+.wavemoving.keyframe12 .group6 .line6 {
+  opacity: 0.0077;
+}
+.wavemoving.keyframe12 .group6 .line7 {
+  opacity: 0.0082;
+}
+.wavemoving.keyframe12 .group6 .line1 {
+  opacity: 0.0039;
+}
+.wavemoving.keyframe12 .group6 .line2 {
+  opacity: 0.0039;
+}
+.wavemoving.keyframe12 .group6 .line3 {
+  opacity: 0.0070;
+}
+.wavemoving.keyframe12 .group6 .line {
+  opacity: 0.0035;
+}
+.wavemoving.keyframe12 .group6 .line8 {
+  opacity: 0.0037;
+}
+.wavemoving.keyframe12 .group61 .linecopy1 {
+  opacity: 0.0086;
+}
+.wavemoving.keyframe12 .group61 .linecopy21 {
+  opacity: 0.001;
+}
+.wavemoving.keyframe12 .group61 .linecopy31 {
+  opacity: 0.0039;
+}
+.wavemoving.keyframe12 .group6 .line11 {
+  opacity: 0.0013;
+}
+.wavemoving.keyframe12 .group6 .line12 {
+  opacity: 0.0041;
+}
+.wavemoving.keyframe12 .group6 .line10 {
+  opacity: 0.0064;
+}
+.wavemoving.keyframe12 .group61 .line22 {
+  opacity: 0.009;
+}
+.wavemoving.keyframe13 .group6 .line4 {
+  opacity: 0.0060;
+}
+.wavemoving.keyframe13 .group6 .line5 {
+  opacity: 0.008;
+}
+.wavemoving.keyframe13 .group6 .line6 {
+  opacity: 0.0098;
+}
+.wavemoving.keyframe13 .group6 .line7 {
+  opacity: 0.0015;
+}
+.wavemoving.keyframe13 .group6 .line1 {
+  opacity: 0.0018;
+}
+.wavemoving.keyframe13 .group6 .line2 {
+  opacity: 0.0052;
+}
+.wavemoving.keyframe13 .group6 .line3 {
+  opacity: 0.0091;
+}
+.wavemoving.keyframe13 .group6 .line {
+  opacity: 0.0068;
+}
+.wavemoving.keyframe13 .group6 .line8 {
+  opacity: 0.0050;
+}
+.wavemoving.keyframe13 .group6 .line9 {
+  opacity: 0.0089;
+}
+.wavemoving.keyframe13 .group61 .linecopy1 {
+  opacity: 0.004;
+}
+.wavemoving.keyframe13 .group61 .linecopy21 {
+  opacity: 0.009;
+}
+.wavemoving.keyframe13 .group61 .linecopy31 {
+  opacity: 0.0057;
+}
+.wavemoving.keyframe13 .group6 .line12 {
+  opacity: 0.0040;
+}
+.wavemoving.keyframe13 .group6 .line10 {
+  opacity: 0.0044;
+}
+.wavemoving.keyframe13 .group6 .line11 {
+  opacity: 0.0052;
+}
+.wavemoving.keyframe14 .group6 .line4 {
+  opacity: 0.0068;
+}
+.wavemoving.keyframe14 .group6 .line5 {
+  opacity: 0.006;
+}
+.wavemoving.keyframe14 .group6 .line6 {
+  opacity: 0.0019;
+}
+.wavemoving.keyframe14 .group6 .line7 {
+  opacity: 0.0096;
+}
+.wavemoving.keyframe14 .group6 .line1 {
+  opacity: 0.0048;
+}
+.wavemoving.keyframe14 .group6 .line2 {
+  opacity: 0.0045;
+}
+.wavemoving.keyframe14 .group6 .line3 {
+  opacity: 0.0034;
+}
+.wavemoving.keyframe14 .group6 .line {
+  opacity: 0.0042;
+}
+.wavemoving.keyframe14 .group6 .line8 {
+  opacity: 0.0071;
+}
+.wavemoving.keyframe14 .group6 .line9 {
+  opacity: 0.0085;
+}
+.wavemoving.keyframe14 .group61 .linecopy21 {
+  opacity: 0.0017;
+}
+.wavemoving.keyframe14 .group61 .linecopy31 {
+  opacity: 0.0014;
+}
+.wavemoving.keyframe14 .group6 .linecopy {
+  opacity: 0.0035;
+}
+.wavemoving.keyframe14 .group6 .line12 {
+  opacity: 0.0026;
+}
+.wavemoving.keyframe14 .group6 .line10 {
+  opacity: 0.0065;
+}
+.wavemoving.keyframe14 .group6 .line11 {
+  opacity: 0.0068;
+}
+.wavemoving.keyframe15 .group6 .line4 {
+  opacity: 0.0036;
+}
+.wavemoving.keyframe15 .group6 .line5 {
+  opacity: 0.0024;
+}
+.wavemoving.keyframe15 .group6 .line6 {
+  opacity: 0.0011;
+}
+.wavemoving.keyframe15 .group6 .line7 {
+  opacity: 0.0045;
+}
+.wavemoving.keyframe15 .group6 .line1 {
+  opacity: 0.0020;
+}
+.wavemoving.keyframe15 .group6 .line2 {
+  opacity: 0.0020;
+}
+.wavemoving.keyframe15 .group6 .line3 {
+  opacity: 0.0079;
+}
+.wavemoving.keyframe15 .group6 .line {
+  opacity: 0.0042;
+}
+.wavemoving.keyframe15 .group6 .line8 {
+  opacity: 0.0070;
+}
+.wavemoving.keyframe15 .group6 .line9 {
+  opacity: 0.0034;
+}
+.wavemoving.keyframe15 .group6 .linecopy2 {
+  opacity: 0.0012;
+}
+.wavemoving.keyframe15 .group61 .linecopy31 {
+  opacity: 0.0053;
+}
+.wavemoving.keyframe15 .group6 .linecopy {
+  opacity: 0.0061;
+}
+.wavemoving.keyframe15 .group6 .line12 {
+  opacity: 0.0029;
+}
+.wavemoving.keyframe15 .group6 .line10 {
+  opacity: 0.0073;
+}
+.wavemoving.keyframe15 .group6 .line11 {
+  opacity: 0.0074;
+}
+.wavemoving.keyframe16 .group6 .line4 {
+  opacity: 0.0062;
+}
+.wavemoving.keyframe16 .group6 .line5 {
+  opacity: 0.0067;
+}
+.wavemoving.keyframe16 .group6 .line6 {
+  opacity: 0.0090;
+}
+.wavemoving.keyframe16 .group6 .linecopy2 {
+  opacity: 0.0025;
+}
+.wavemoving.keyframe16 .group6 .line1 {
+  opacity: 0.0040;
+}
+.wavemoving.keyframe16 .group6 .line2 {
+  opacity: 0.0070;
+}
+.wavemoving.keyframe16 .group6 .line3 {
+  opacity: 0.0059;
+}
+.wavemoving.keyframe16 .group6 .line {
+  opacity: 0.0045;
+}
+.wavemoving.keyframe16 .group6 .line8 {
+  opacity: 0.003;
+}
+.wavemoving.keyframe16 .group6 .linecopy3 {
+  opacity: 0.0034;
+}
+.wavemoving.keyframe16 .group6 .line9 {
+  opacity: 0.0024;
+}
+.wavemoving.keyframe16 .group6 .line7 {
+  opacity: 0.0038;
+}
+.wavemoving.keyframe16 .group6 .linecopy {
+  opacity: 0.0032;
+}
+.wavemoving.keyframe16 .group6 .line12 {
+  opacity: 0.0083;
+}
+.wavemoving.keyframe16 .group6 .line10 {
+  opacity: 0.007;
+}
+.wavemoving.keyframe16 .group6 .line11 {
+  opacity: 0.0020;
+}
