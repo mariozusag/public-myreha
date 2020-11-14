@@ -8,30 +8,6 @@
     background-color: rgba(255,255,255,0.0);  top: 0px;  height: 195px;  width: 423px;  position: absolute;  margin: 0;  left: 0px;  transform: rotate(0deg);
 }
 
-.heroleft .bluedot3 {
-    background-color: rgba(255,255,255,0.0);  top: 144px;  height: 8px;  width: 8px;  position: absolute;  margin: 0;  left: 252px;  transform: rotate(0deg);
-}
-
-.heroleft .bluedot2 {
-    background-color: rgba(255,255,255,0.0);  top: 144px;  height: 8px;  width: 8px;  position: absolute;  margin: 0;  left: 237px;  transform: rotate(0deg);
-}
-
-.heroleft .bluedot1 {
-    background-color: rgba(255,255,255,0.0);  top: 144px;  height: 8px;  width: 8px;  position: absolute;  margin: 0;  left: 222px;  transform: rotate(0deg);
-}
-
-.heroleft .blackdot3 {
-    background-color: rgba(255,255,255,0.0);  top: 173px;  height: 8px;  width: 8px;  position: absolute;  margin: 0;  left: 252px;  transform: rotate(0deg);
-}
-
-.heroleft .blackdot2 {
-    background-color: rgba(255,255,255,0.0);  top: 173px;  height: 8px;  width: 8px;  position: absolute;  margin: 0;  left: 237px;  transform: rotate(0deg);
-}
-
-.heroleft .blackdot1 {
-    background-color: rgba(255,255,255,0.0);  top: 173px;  height: 8px;  width: 8px;  position: absolute;  margin: 0;  left: 222px;  transform: rotate(0deg);
-}
-
 .heroleft .line1 {
     background-color: rgba(255,255,255,0.0);  top: 144px;  height: 12px;  width: 2px;  position: absolute;  margin: 0;  left: 255px;  transform: rotate(0deg);
 }

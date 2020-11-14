@@ -375,36 +375,6 @@
         "listeners": [
           {
             "animations": {
-              ".blackdot1": {
-                "delay": 400, 
-                "duration": 400, 
-                "easing": "ease-in-out"
-              }, 
-              ".blackdot2": {
-                "delay": 400, 
-                "duration": 600, 
-                "easing": "ease-in-out"
-              }, 
-              ".blackdot3": {
-                "delay": 400, 
-                "duration": 800, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot1": {
-                "delay": 400, 
-                "duration": 400, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot2": {
-                "delay": 400, 
-                "duration": 600, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot3": {
-                "delay": 400, 
-                "duration": 800, 
-                "easing": "ease-in-out"
-              }, 
               ".line1": {
                 "delay": 0, 
                 "duration": 800, 
@@ -522,27 +492,6 @@
           }
         ], 
         "overrides": {
-          ".blackdot1": {
-            "opacity": "0.0"
-          }, 
-          ".blackdot2": {
-            "opacity": "0.0"
-          }, 
-          ".blackdot3": {
-            "opacity": "0.0"
-          }, 
-          ".bluedot1": {
-            "opacity": "0.0", 
-            "top": "173px"
-          }, 
-          ".bluedot2": {
-            "opacity": "0.0", 
-            "top": "173px"
-          }, 
-          ".bluedot3": {
-            "opacity": "0.0", 
-            "top": "173px"
-          }, 
           ".line1": {
             "opacity": "0.0"
           }, 
@@ -615,36 +564,6 @@
         "listeners": [
           {
             "animations": {
-              ".blackdot1": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".blackdot2": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".blackdot3": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot1": {
-                "delay": 0, 
-                "duration": 400, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot2": {
-                "delay": 0, 
-                "duration": 600, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot3": {
-                "delay": 0, 
-                "duration": 800, 
-                "easing": "ease-in-out"
-              }, 
               ".line1": {
                 "delay": 0, 
                 "duration": 200, 
@@ -762,36 +681,6 @@
           }
         ], 
         "overrides": {
-          ".blackdot1": {
-            "opacity": "0.0", 
-            "top": "150px"
-          }, 
-          ".blackdot2": {
-            "bottom": "18.97%", 
-            "height": "4.10%", 
-            "opacity": "0.0", 
-            "right": "42.08%", 
-            "width": "1.89%"
-          }, 
-          ".blackdot3": {
-            "bottom": "18.97%", 
-            "height": "4.10%", 
-            "opacity": "0.0", 
-            "right": "38.53%", 
-            "width": "1.89%"
-          }, 
-          ".bluedot1": {
-            "opacity": "0.0", 
-            "top": "150px"
-          }, 
-          ".bluedot2": {
-            "opacity": "0.0", 
-            "top": "150px"
-          }, 
-          ".bluedot3": {
-            "opacity": "0.0", 
-            "top": "150px"
-          }, 
           ".line1": {
             "opacity": "0.0"
           }, 
@@ -864,36 +753,6 @@
         "listeners": [
           {
             "animations": {
-              ".blackdot1": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".blackdot2": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".blackdot3": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot1": {
-                "delay": 0, 
-                "duration": 400, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot2": {
-                "delay": 0, 
-                "duration": 600, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot3": {
-                "delay": 0, 
-                "duration": 800, 
-                "easing": "ease-in-out"
-              }, 
               ".line1": {
                 "delay": 0, 
                 "duration": 200, 
@@ -1011,36 +870,6 @@
           }
         ], 
         "overrides": {
-          ".blackdot1": {
-            "opacity": "0.0", 
-            "top": "144px"
-          }, 
-          ".blackdot2": {
-            "bottom": "22.05%", 
-            "height": "4.10%", 
-            "opacity": "0.0", 
-            "right": "42.08%", 
-            "width": "1.89%"
-          }, 
-          ".blackdot3": {
-            "bottom": "22.05%", 
-            "height": "4.10%", 
-            "opacity": "0.0", 
-            "right": "38.53%", 
-            "width": "1.89%"
-          }, 
-          ".bluedot1": {
-            "opacity": "0.0", 
-            "top": "173px"
-          }, 
-          ".bluedot2": {
-            "opacity": "0.0", 
-            "top": "173px"
-          }, 
-          ".bluedot3": {
-            "opacity": "0.0", 
-            "top": "173px"
-          }, 
           ".line1": {
             "opacity": "0.0"
           }, 
@@ -1113,36 +942,6 @@
         "listeners": [
           {
             "animations": {
-              ".blackdot1": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".blackdot2": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".blackdot3": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot1": {
-                "delay": 0, 
-                "duration": 400, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot2": {
-                "delay": 0, 
-                "duration": 600, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot3": {
-                "delay": 0, 
-                "duration": 800, 
-                "easing": "ease-in-out"
-              }, 
               ".line1": {
                 "delay": 400, 
                 "duration": 400, 
@@ -1260,36 +1059,6 @@
           }
         ], 
         "overrides": {
-          ".blackdot1": {
-            "opacity": "0.0", 
-            "top": "144px"
-          }, 
-          ".blackdot2": {
-            "bottom": "22.05%", 
-            "height": "4.10%", 
-            "opacity": "0.0", 
-            "right": "42.08%", 
-            "width": "1.89%"
-          }, 
-          ".blackdot3": {
-            "bottom": "22.05%", 
-            "height": "4.10%", 
-            "opacity": "0.0", 
-            "right": "38.53%", 
-            "width": "1.89%"
-          }, 
-          ".bluedot1": {
-            "opacity": "0.0", 
-            "top": "150px"
-          }, 
-          ".bluedot2": {
-            "opacity": "0.0", 
-            "top": "150px"
-          }, 
-          ".bluedot3": {
-            "opacity": "0.0", 
-            "top": "150px"
-          }, 
           ".line1": {
             "height": "6px", 
             "opacity": "0.0", 
@@ -1391,36 +1160,6 @@
         "listeners": [
           {
             "animations": {
-              ".blackdot1": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".blackdot2": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".blackdot3": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot1": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot2": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot3": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
               ".line1": {
                 "delay": 0, 
                 "duration": 200, 
@@ -1538,39 +1277,6 @@
           }
         ], 
         "overrides": {
-          ".blackdot1": {
-            "opacity": "0.0", 
-            "top": "144px"
-          }, 
-          ".blackdot2": {
-            "bottom": "22.05%", 
-            "height": "4.10%", 
-            "opacity": "0.0", 
-            "right": "42.08%", 
-            "width": "1.89%"
-          }, 
-          ".blackdot3": {
-            "bottom": "22.05%", 
-            "height": "4.10%", 
-            "opacity": "0.0", 
-            "right": "38.53%", 
-            "width": "1.89%"
-          }, 
-          ".bluedot1": {
-            "opacity": "0.0", 
-            "top": "150px"
-          }, 
-          ".bluedot2": {
-            "opacity": "0.0", 
-            "top": "150px"
-          }, 
-          ".bluedot3": {
-            "height": "6px", 
-            "left": "255px", 
-            "opacity": "0.0", 
-            "top": "150px", 
-            "width": "1px"
-          }, 
           ".line1": {
             "top": "150px", 
             "width": "3px"
@@ -1650,36 +1356,6 @@
         "listeners": [
           {
             "animations": {
-              ".blackdot1": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".blackdot2": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".blackdot3": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".bluedot1": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".bluedot2": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".bluedot3": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
               ".line1": {
                 "delay": 0, 
                 "duration": 0, 
@@ -1797,38 +1473,6 @@
           }
         ], 
         "overrides": {
-          ".blackdot1": {
-            "opacity": "0.0"
-          }, 
-          ".blackdot2": {
-            "bottom": "7.18%", 
-            "height": "4.10%", 
-            "opacity": "0.0", 
-            "right": "42.08%", 
-            "width": "1.89%"
-          }, 
-          ".blackdot3": {
-            "bottom": "7.18%", 
-            "height": "4.10%", 
-            "opacity": "0.0", 
-            "right": "38.53%", 
-            "width": "1.89%"
-          }, 
-          ".bluedot1": {
-            "opacity": "0.0", 
-            "top": "150px"
-          }, 
-          ".bluedot2": {
-            "opacity": "0.0", 
-            "top": "150px"
-          }, 
-          ".bluedot3": {
-            "height": "6px", 
-            "left": "255px", 
-            "opacity": "0.0", 
-            "top": "150px", 
-            "width": "1px"
-          }, 
           ".line1": {
             "opacity": "0.0", 
             "top": "150px", 
