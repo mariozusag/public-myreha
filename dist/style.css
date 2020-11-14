@@ -8,92 +8,88 @@
     background-color: rgba(255,255,255,0.0);  top: 0px;  height: 195px;  width: 423px;  position: absolute;  margin: 0;  left: 0px;  transform: rotate(0deg);
 }
 
-.heroleft .line1 {
-    background-color: rgba(255,255,255,0.0);  top: 144px;  height: 12px;  width: 2px;  position: absolute;  margin: 0;  left: 255px;  transform: rotate(0deg);
-}
-
 .heroleft .line3 {
-    background-color: rgba(255,255,255,0.0);  right: 35.93%;  bottom: 11.28%;  height: 11.28%;  width: 0.47%;  position: absolute;  margin: 0;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 155px;  height: 22px;  width: 3px;  position: absolute;  margin: 0;  left: 269px;  transform: rotate(0deg);
 }
 
 .heroleft .line4 {
-    background-color: rgba(255,255,255,0.0);  right: 34.04%;  bottom: 8.72%;  height: 16.41%;  width: 0.47%;  position: absolute;  margin: 0;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 150px;  height: 32px;  width: 3px;  position: absolute;  margin: 0;  left: 277px;  transform: rotate(0deg);
 }
 
 .heroleft .line5 {
-    background-color: rgba(255,255,255,0.0);  right: 32.39%;  bottom: 11.28%;  height: 11.28%;  width: 0.47%;  position: absolute;  margin: 0;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 155px;  height: 22px;  width: 3px;  position: absolute;  margin: 0;  left: 284px;  transform: rotate(0deg);
 }
 
 .heroleft .line6 {
-    background-color: rgba(255,255,255,0.0);  right: 30.73%;  bottom: 13.85%;  height: 6.15%;  width: 0.47%;  position: absolute;  margin: 0;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 160px;  height: 12px;  width: 3px;  position: absolute;  margin: 0;  left: 291px;  transform: rotate(0deg);
 }
 
 .heroleft .line7 {
-    background-color: rgba(255,255,255,0.0);  right: 29.08%;  bottom: 14.87%;  height: 3.59%;  width: 0.47%;  position: absolute;  margin: 0;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 163px;  height: 7px;  width: 3px;  position: absolute;  margin: 0;  left: 298px;  transform: rotate(0deg);
 }
 
 .heroleft .line8 {
-    background-color: rgba(255,255,255,0.0);  right: 27.42%;  bottom: 13.85%;  height: 6.15%;  width: 0.47%;  position: absolute;  margin: 0;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 160px;  height: 12px;  width: 3px;  position: absolute;  margin: 0;  left: 305px;  transform: rotate(0deg);
 }
 
 .heroleft .line9 {
-    background-color: rgba(255,255,255,0.0);  top: 151px;  height: 22px;  width: 2px;  position: absolute;  margin: 0;  left: 312px;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 155px;  height: 22px;  width: 3px;  position: absolute;  margin: 0;  left: 312px;  transform: rotate(0deg);
 }
 
 .heroleft .line10 {
-    background-color: rgba(255,255,255,0.0);  top: 146px;  height: 32px;  width: 2px;  position: absolute;  margin: 0;  left: 319px;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 150px;  height: 32px;  width: 3px;  position: absolute;  margin: 0;  left: 319px;  transform: rotate(0deg);
 }
 
 .heroleft .line11 {
-    background-color: rgba(255,255,255,0.0);  top: 151px;  height: 22px;  width: 2px;  position: absolute;  margin: 0;  left: 326px;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 155px;  height: 22px;  width: 3px;  position: absolute;  margin: 0;  left: 326px;  transform: rotate(0deg);
 }
 
 .heroleft .line12 {
-    background-color: rgba(255,255,255,0.0);  top: 156px;  height: 12px;  width: 2px;  position: absolute;  margin: 0;  left: 333px;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 160px;  height: 12px;  width: 3px;  position: absolute;  margin: 0;  left: 333px;  transform: rotate(0deg);
 }
 
 .heroleft .line13 {
-    background-color: rgba(255,255,255,0.0);  top: 159px;  height: 7px;  width: 2px;  position: absolute;  margin: 0;  left: 340px;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 163px;  height: 7px;  width: 3px;  position: absolute;  margin: 0;  left: 340px;  transform: rotate(0deg);
 }
 
 .heroleft .line14 {
-    background-color: rgba(255,255,255,0.0);  top: 156px;  height: 12px;  width: 2px;  position: absolute;  margin: 0;  left: 347px;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 160px;  height: 12px;  width: 3px;  position: absolute;  margin: 0;  left: 347px;  transform: rotate(0deg);
 }
 
 .heroleft .line15 {
-    background-color: rgba(255,255,255,0.0);  top: 153px;  height: 17px;  width: 2px;  position: absolute;  margin: 0;  left: 354px;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 157px;  height: 17px;  width: 3px;  position: absolute;  margin: 0;  left: 354px;  transform: rotate(0deg);
 }
 
 .heroleft .line17 {
-    background-color: rgba(255,255,255,0.0);  top: 160px;  height: 4px;  width: 2px;  position: absolute;  margin: 0;  left: 368px;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 164px;  height: 4px;  width: 3px;  position: absolute;  margin: 0;  left: 368px;  transform: rotate(0deg);
 }
 
 .heroleft .line16 {
-    background-color: rgba(255,255,255,0.0);  top: 159px;  height: 6px;  width: 2px;  position: absolute;  margin: 0;  left: 361px;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 163px;  height: 6px;  width: 3px;  position: absolute;  margin: 0;  left: 361px;  transform: rotate(0deg);
 }
 
 .heroleft .line18 {
-    background-color: rgba(255,255,255,0.0);  top: 155px;  height: 14px;  width: 2px;  position: absolute;  margin: 0;  left: 375px;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 159px;  height: 14px;  width: 3px;  position: absolute;  margin: 0;  left: 375px;  transform: rotate(0deg);
 }
 
 .heroleft .line19 {
-    background-color: rgba(255,255,255,0.0);  top: 152px;  height: 20px;  width: 2px;  position: absolute;  margin: 0;  left: 382px;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 156px;  height: 20px;  width: 3px;  position: absolute;  margin: 0;  left: 382px;  transform: rotate(0deg);
 }
 
 .heroleft .line20 {
-    background-color: rgba(255,255,255,0.0);  top: 156px;  height: 12px;  width: 2px;  position: absolute;  margin: 0;  left: 389px;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 160px;  height: 12px;  width: 3px;  position: absolute;  margin: 0;  left: 389px;  transform: rotate(0deg);
 }
 
 .heroleft .line21 {
-    background-color: rgba(255,255,255,0.0);  top: 158px;  height: 8px;  width: 2px;  position: absolute;  margin: 0;  left: 396px;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 162px;  height: 8px;  width: 3px;  position: absolute;  margin: 0;  left: 396px;  transform: rotate(0deg);
 }
 
 .heroleft .line22 {
-    background-color: rgba(255,255,255,0.0);  top: 159px;  height: 6px;  width: 2px;  position: absolute;  margin: 0;  left: 403px;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 163px;  height: 6px;  width: 3px;  position: absolute;  margin: 0;  left: 403px;  transform: rotate(0deg);
 }
 
 .heroleft .line2 {
-    background-color: rgba(255,255,255,0.0);  top: 151px;  height: 12px;  width: 2px;  position: absolute;  margin: 0;  left: 262px;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 159px;  height: 12px;  width: 3px;  position: absolute;  margin: 0;  left: 262px;  transform: rotate(0deg);
 }
 
 

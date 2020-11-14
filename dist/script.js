@@ -375,114 +375,109 @@
         "listeners": [
           {
             "animations": {
-              ".line1": {
-                "delay": 0, 
-                "duration": 800, 
-                "easing": "ease-in-out"
-              }, 
               ".line10": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 1200, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line11": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 1300, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line12": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 1400, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line13": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 1500, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line14": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 1600, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line15": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 1700, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line16": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 1800, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line17": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 1900, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line18": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 2000, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line19": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 2100, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line2": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 400, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line20": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 2200, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line21": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 2300, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line22": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 2400, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line3": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 500, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line4": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 600, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line5": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 700, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line6": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 800, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line7": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 900, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line8": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 1000, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }, 
               ".line9": {
-                "delay": 0, 
-                "duration": 200, 
+                "delay": 1100, 
+                "duration": 600, 
                 "easing": "ease-in-out"
               }
             }, 
@@ -492,1083 +487,116 @@
           }
         ], 
         "overrides": {
-          ".line1": {
-            "opacity": "0.0"
-          }, 
           ".line10": {
-            "opacity": "0.0"
+            "height": "16px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line11": {
-            "opacity": "0.0"
+            "height": "10px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line12": {
-            "opacity": "0.0"
+            "height": "6px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line13": {
-            "opacity": "0.0"
+            "height": "3px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line14": {
-            "opacity": "0.0"
+            "height": "6px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line15": {
-            "opacity": "0.0"
+            "height": "8px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line16": {
-            "opacity": "0.0"
+            "height": "3px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line17": {
-            "opacity": "0.0"
+            "height": "2px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line18": {
-            "opacity": "0.0"
+            "height": "7px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line19": {
-            "opacity": "0.0"
+            "height": "10px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line2": {
-            "opacity": "0.0"
+            "height": "6px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line20": {
-            "opacity": "0.0"
+            "height": "6px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line21": {
-            "opacity": "0.0"
+            "height": "4px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line22": {
-            "opacity": "0.0"
+            "height": "3px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line3": {
-            "opacity": "0.0"
+            "height": "10px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line4": {
-            "opacity": "0.0"
+            "height": "16px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line5": {
-            "opacity": "0.0"
+            "height": "10px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line6": {
-            "opacity": "0.0"
+            "height": "6px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line7": {
-            "opacity": "0.0"
+            "height": "3px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line8": {
-            "opacity": "0.0"
+            "height": "6px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }, 
           ".line9": {
-            "opacity": "0.0"
+            "height": "10px", 
+            "opacity": "0.0", 
+            "width": "2px"
           }
         }
       }, 
       "keyframe2": {
-        "listeners": [
-          {
-            "animations": {
-              ".line1": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line10": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line11": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line12": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line13": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line14": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line15": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line16": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line17": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line18": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line19": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line2": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line20": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line21": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line22": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line3": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line4": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line5": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line6": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line7": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line8": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line9": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }
-            }, 
-            "change_to_state": "keyframe3", 
-            "delay": 0, 
-            "listener_type": "timer"
-          }
-        ], 
-        "overrides": {
-          ".line1": {
-            "opacity": "0.0"
-          }, 
-          ".line10": {
-            "opacity": "0.0"
-          }, 
-          ".line11": {
-            "opacity": "0.0"
-          }, 
-          ".line12": {
-            "opacity": "0.0"
-          }, 
-          ".line13": {
-            "opacity": "0.0"
-          }, 
-          ".line14": {
-            "opacity": "0.0"
-          }, 
-          ".line15": {
-            "opacity": "0.0"
-          }, 
-          ".line16": {
-            "opacity": "0.0"
-          }, 
-          ".line17": {
-            "opacity": "0.0"
-          }, 
-          ".line18": {
-            "opacity": "0.0"
-          }, 
-          ".line19": {
-            "opacity": "0.0"
-          }, 
-          ".line2": {
-            "opacity": "0.0"
-          }, 
-          ".line20": {
-            "opacity": "0.0"
-          }, 
-          ".line21": {
-            "opacity": "0.0"
-          }, 
-          ".line22": {
-            "opacity": "0.0"
-          }, 
-          ".line3": {
-            "opacity": "0.0"
-          }, 
-          ".line4": {
-            "opacity": "0.0"
-          }, 
-          ".line5": {
-            "opacity": "0.0"
-          }, 
-          ".line6": {
-            "opacity": "0.0"
-          }, 
-          ".line7": {
-            "opacity": "0.0"
-          }, 
-          ".line8": {
-            "opacity": "0.0"
-          }, 
-          ".line9": {
-            "opacity": "0.0"
-          }
-        }
-      }, 
-      "keyframe3": {
-        "listeners": [
-          {
-            "animations": {
-              ".line1": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line10": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line11": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line12": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line13": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line14": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line15": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line16": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line17": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line18": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line19": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line2": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line20": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line21": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line22": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line3": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line4": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line5": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line6": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line7": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line8": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line9": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }
-            }, 
-            "change_to_state": "keyframe4", 
-            "delay": 0, 
-            "listener_type": "timer"
-          }
-        ], 
-        "overrides": {
-          ".line1": {
-            "opacity": "0.0"
-          }, 
-          ".line10": {
-            "opacity": "0.0"
-          }, 
-          ".line11": {
-            "opacity": "0.0"
-          }, 
-          ".line12": {
-            "opacity": "0.0"
-          }, 
-          ".line13": {
-            "opacity": "0.0"
-          }, 
-          ".line14": {
-            "opacity": "0.0"
-          }, 
-          ".line15": {
-            "opacity": "0.0"
-          }, 
-          ".line16": {
-            "opacity": "0.0"
-          }, 
-          ".line17": {
-            "opacity": "0.0"
-          }, 
-          ".line18": {
-            "opacity": "0.0"
-          }, 
-          ".line19": {
-            "opacity": "0.0"
-          }, 
-          ".line2": {
-            "opacity": "0.0"
-          }, 
-          ".line20": {
-            "opacity": "0.0"
-          }, 
-          ".line21": {
-            "opacity": "0.0"
-          }, 
-          ".line22": {
-            "opacity": "0.0"
-          }, 
-          ".line3": {
-            "opacity": "0.0"
-          }, 
-          ".line4": {
-            "opacity": "0.0"
-          }, 
-          ".line5": {
-            "opacity": "0.0"
-          }, 
-          ".line6": {
-            "opacity": "0.0"
-          }, 
-          ".line7": {
-            "opacity": "0.0"
-          }, 
-          ".line8": {
-            "opacity": "0.0"
-          }, 
-          ".line9": {
-            "opacity": "0.0"
-          }
-        }
-      }, 
-      "keyframe4": {
-        "listeners": [
-          {
-            "animations": {
-              ".line1": {
-                "delay": 400, 
-                "duration": 400, 
-                "easing": "ease-in-out"
-              }, 
-              ".line10": {
-                "delay": 1600, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line11": {
-                "delay": 1700, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line12": {
-                "delay": 1800, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line13": {
-                "delay": 1900, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line14": {
-                "delay": 2000, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line15": {
-                "delay": 2100, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line16": {
-                "delay": 2300, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line17": {
-                "delay": 2200, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line18": {
-                "delay": 2400, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line19": {
-                "delay": 2500, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line2": {
-                "delay": 700, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line20": {
-                "delay": 2600, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line21": {
-                "delay": 2700, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line22": {
-                "delay": 2800, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line3": {
-                "delay": 900, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line4": {
-                "delay": 1000, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line5": {
-                "delay": 1100, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line6": {
-                "delay": 1200, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line7": {
-                "delay": 1300, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line8": {
-                "delay": 1400, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }, 
-              ".line9": {
-                "delay": 1500, 
-                "duration": 500, 
-                "easing": "ease-in-out"
-              }
-            }, 
-            "change_to_state": "keyframe5", 
-            "delay": 0, 
-            "listener_type": "timer"
-          }
-        ], 
-        "overrides": {
-          ".line1": {
-            "height": "6px", 
-            "opacity": "0.0", 
-            "top": "150px"
-          }, 
-          ".line10": {
-            "height": "16px", 
-            "opacity": "0.0"
-          }, 
-          ".line11": {
-            "height": "10px", 
-            "opacity": "0.0"
-          }, 
-          ".line12": {
-            "height": "6px", 
-            "opacity": "0.0"
-          }, 
-          ".line13": {
-            "height": "4px", 
-            "opacity": "0.0"
-          }, 
-          ".line14": {
-            "height": "6px", 
-            "opacity": "0.0"
-          }, 
-          ".line15": {
-            "height": "8px", 
-            "opacity": "0.0"
-          }, 
-          ".line16": {
-            "height": "3px", 
-            "opacity": "0.0"
-          }, 
-          ".line17": {
-            "height": "2px", 
-            "opacity": "0.0"
-          }, 
-          ".line18": {
-            "height": "7px", 
-            "opacity": "0.0"
-          }, 
-          ".line19": {
-            "height": "10px", 
-            "opacity": "0.0"
-          }, 
-          ".line2": {
-            "height": "6px", 
-            "opacity": "0.0"
-          }, 
-          ".line20": {
-            "height": "6px", 
-            "opacity": "0.0"
-          }, 
-          ".line21": {
-            "height": "4px", 
-            "opacity": "0.0"
-          }, 
-          ".line22": {
-            "height": "3px", 
-            "opacity": "0.0"
-          }, 
-          ".line3": {
-            "bottom": "17.44%", 
-            "height": "5.13%", 
-            "opacity": "0.0"
-          }, 
-          ".line4": {
-            "bottom": "16.92%", 
-            "height": "8.21%", 
-            "opacity": "0.0"
-          }, 
-          ".line5": {
-            "bottom": "17.44%", 
-            "height": "5.13%", 
-            "opacity": "0.0"
-          }, 
-          ".line6": {
-            "bottom": "16.92%", 
-            "height": "3.08%", 
-            "opacity": "0.0"
-          }, 
-          ".line7": {
-            "bottom": "16.41%", 
-            "height": "2.05%", 
-            "opacity": "0.0"
-          }, 
-          ".line8": {
-            "bottom": "16.92%", 
-            "height": "3.08%", 
-            "opacity": "0.0"
-          }, 
-          ".line9": {
-            "height": "10px", 
-            "opacity": "0.0"
-          }
-        }
-      }, 
-      "keyframe5": {
-        "listeners": [
-          {
-            "animations": {
-              ".line1": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line10": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line11": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line12": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line13": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line14": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line15": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line16": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line17": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line18": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line19": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line2": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line20": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line21": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line22": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line3": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line4": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line5": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line6": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line7": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line8": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line9": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }
-            }, 
-            "change_to_state": "keyframe6", 
-            "delay": 0, 
-            "listener_type": "timer"
-          }
-        ], 
-        "overrides": {
-          ".line1": {
-            "top": "150px", 
-            "width": "3px"
-          }, 
-          ".line10": {
-            "width": "3px"
-          }, 
-          ".line11": {
-            "width": "3px"
-          }, 
-          ".line12": {
-            "width": "3px"
-          }, 
-          ".line13": {
-            "width": "3px"
-          }, 
-          ".line14": {
-            "width": "3px"
-          }, 
-          ".line15": {
-            "width": "3px"
-          }, 
-          ".line16": {
-            "width": "3px"
-          }, 
-          ".line17": {
-            "width": "3px"
-          }, 
-          ".line18": {
-            "width": "3px"
-          }, 
-          ".line19": {
-            "width": "3px"
-          }, 
-          ".line2": {
-            "width": "3px"
-          }, 
-          ".line20": {
-            "width": "3px"
-          }, 
-          ".line21": {
-            "width": "3px"
-          }, 
-          ".line22": {
-            "width": "3px"
-          }, 
-          ".line3": {
-            "right": "35.70%", 
-            "width": "0.71%"
-          }, 
-          ".line4": {
-            "right": "33.81%", 
-            "width": "0.71%"
-          }, 
-          ".line5": {
-            "right": "32.15%", 
-            "width": "0.71%"
-          }, 
-          ".line6": {
-            "right": "30.50%", 
-            "width": "0.71%"
-          }, 
-          ".line7": {
-            "right": "28.84%", 
-            "width": "0.71%"
-          }, 
-          ".line8": {
-            "right": "27.19%", 
-            "width": "0.71%"
-          }, 
-          ".line9": {
-            "width": "3px"
-          }
-        }
-      }, 
-      "keyframe6": {
-        "listeners": [
-          {
-            "animations": {
-              ".line1": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line10": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line11": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line12": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line13": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line14": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line15": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line16": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line17": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line18": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line19": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line2": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line20": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line21": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line22": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line3": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line4": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line5": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line6": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line7": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line8": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }, 
-              ".line9": {
-                "delay": 0, 
-                "duration": 0, 
-                "easing": "linear"
-              }
-            }, 
-            "change_to_state": "keyframe1", 
-            "delay": 0, 
-            "listener_type": "timer"
-          }
-        ], 
-        "overrides": {
-          ".line1": {
-            "opacity": "0.0", 
-            "top": "150px", 
-            "width": "3px"
-          }, 
-          ".line10": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line11": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line12": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line13": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line14": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line15": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line16": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line17": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line18": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line19": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line2": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line20": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line21": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line22": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line3": {
-            "opacity": "0.0", 
-            "right": "35.70%", 
-            "width": "0.71%"
-          }, 
-          ".line4": {
-            "opacity": "0.0", 
-            "right": "33.81%", 
-            "width": "0.71%"
-          }, 
-          ".line5": {
-            "opacity": "0.0", 
-            "right": "32.15%", 
-            "width": "0.71%"
-          }, 
-          ".line6": {
-            "opacity": "0.0", 
-            "right": "30.50%", 
-            "width": "0.71%"
-          }, 
-          ".line7": {
-            "opacity": "0.0", 
-            "right": "28.84%", 
-            "width": "0.71%"
-          }, 
-          ".line8": {
-            "opacity": "0.0", 
-            "right": "27.19%", 
-            "width": "0.71%"
-          }, 
-          ".line9": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }
-        }
+        "listeners": [], 
+        "overrides": {}
       }
     }
   }
