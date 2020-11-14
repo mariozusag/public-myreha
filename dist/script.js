@@ -1,606 +1,2145 @@
-if (typeof String.prototype.endsWith !== 'function') {
-    String.prototype.endsWith = function(suffix) {
-        return this.indexOf(suffix, this.length - suffix.length) !== -1;
+(() => {
+
+    const sides_opposites = {
+        left: 'right',
+        right: 'left',
+        top: 'bottom',
+        bottom: 'top'
     };
-}
+    const sides_containers = {
+        left: 'width',
+        right: 'width',
+        top: 'height',
+        bottom: 'height'
+    };
+    const containers = ['height', 'width'];
 
-if (!String.prototype.startsWith) {
-  String.prototype.startsWith = function(searchString, position) {
-    position = position || 0;
-    return this.indexOf(searchString, position) === position;
-  };
-}
-
-if (!Array.prototype.forEach) {
-
-  Array.prototype.forEach = function(callback/*, thisArg*/) {
-
-    var T, k;
-
-    if (this == null) {
-      throw new TypeError('this is null or not defined');
+    function normalize_to_percent_and_offset(value) {
+        let percent = 0.0;
+        let pixel_offset = 0;
+        const calc_match = value.match(/calc\(\s*([0-9.]*)%\s*([-+])\s*([0-9]*)px/);
+        if (calc_match) {
+            percent = parseFloat(calc_match[1]);
+            pixel_offset = parseInt(calc_match[3]);
+            if (calc_match[2] === "-") {
+                pixel_offset = -pixel_offset;
+            }
+        } else if (String(value).includes('%')) {
+            percent = parseFloat(value.replace('%', ''));
+        } else {
+            pixel_offset = parseInt(value, 10);
+        }
+        return {
+            percent,
+            pixel_offset
+        }
     }
 
-    // 1. Let O be the result of calling toObject() passing the
-    // |this| value as the argument.
-    var O = Object(this);
-
-    // 2. Let lenValue be the result of calling the Get() internal
-    // method of O with the argument "length".
-    // 3. Let len be toUint32(lenValue).
-    var len = O.length >>> 0;
-
-    // 4. If isCallable(callback) is false, throw a TypeError exception.
-    // See: http://es5.github.com/#x9.11
-    if (typeof callback !== 'function') {
-      throw new TypeError(callback + ' is not a function');
+    /**
+     * converts px to % for  width/height/left/right/top/bottom
+     * @param element a DOM element
+     * @param property width/height or direction
+     * @param value property value in px
+     */
+    function to_relative_percent(element, property, value) {
+        const offsetParent = element.offsetParent;
+        if (!offsetParent) {
+            return 0;
+        }
+        let target_style_property = property; // width/height
+        if (sides_containers.hasOwnProperty(property)) {
+            target_style_property = sides_containers[property]; //left/right/top/bottom
+        }
+        const parent_size = Math.max(1, parseInt(getComputedStyle(offsetParent)[target_style_property], 10));
+        return parseFloat(100 * value / parent_size);
     }
 
-    // 5. If thisArg was supplied, let T be thisArg; else let
-    // T be undefined.
-    if (arguments.length > 1) {
-      T = arguments[1];
+    /**
+     * this funciton changes px positioniong to % and back, keeping the element at the same place
+     * margins are dissovled into position
+     * @param element - target element to modify
+     * @param new_props - next props map e.g.: {width:'100px',left:'10%'} will change element's width by px and left by %...
+     * ... if the element previosly had 'right', 'right-margin' it will be reomved while keeping element in the same place
+     */
+    function convert_to_matching_positioning(element, new_props) {
+
+
+        const computed_element_style = getComputedStyle(element);
+
+        Object.entries(new_props).forEach(([property, value]) => {
+            if (sides_opposites.hasOwnProperty(property)) {
+                const to_percent = String(value).includes('%');
+
+                let new_prop_value = parseInt(computed_element_style[property], 10) +
+                    parseInt(computed_element_style['margin-' + property], 10);
+
+                if (to_percent) {
+                    new_prop_value = to_relative_percent(element, property, new_prop_value).toFixed(4) + '%';
+                } else {
+                    new_prop_value += 'px';
+                }
+
+                element.style[property] = new_prop_value;
+                element.style['margin-' + property] = 0;
+                element.style['margin-' + sides_opposites[property]] = 0;
+
+                if (element.style[sides_opposites[property]]) {
+                    element.style[sides_opposites[property]] = 'auto';
+                }
+            } else if (containers.includes(property)) {
+                const to_percent = String(value).includes('%');
+                let new_prop_value = parseInt(computed_element_style[property]);
+                if (to_percent) {
+                    new_prop_value = to_relative_percent(element, property, new_prop_value).toFixed(4) + '%';
+                } else {
+                    new_prop_value += 'px';
+                }
+                element.style[property] = new_prop_value;
+            }
+        });
     }
 
-    // 6. Let k be 0.
-    k = 0;
+    /** this function sets up  listeners. when a listener is activated event_handler is called.
+     * it returns a cleanup closure which cleans up those listeners when invoked
+     **/
+    function setup_listener(root_element, listener_specs, event_handler) {
+        let cleaner = null;
 
-    // 7. Repeat while k < len.
-    while (k < len) {
+        if (listener_specs.listener_type === "timer") {
+            const timeout = setTimeout(event_handler, listener_specs.delay);
+            cleaner = () => clearTimeout(timeout)
+        } else if (['click', 'mouseenter', 'mouseleave'].includes(listener_specs.listener_type)) {
 
-      var kValue;
+            const target_element = listener_specs.target_selector === "" ? root_element : root_element.querySelector(listener_specs.target_selector);
+            let event_handler_fixed = (event) => {
+                if (event.type === 'click' || event.target === target_element) {
+                    event.stopPropagation();
+                    event_handler();
+                }
+            };
 
-      // a. Let Pk be ToString(k).
-      //    This is implicit for LHS operands of the in operator.
-      // b. Let kPresent be the result of calling the HasProperty
-      //    internal method of O with argument Pk.
-      //    This step can be combined with c.
-      // c. If kPresent is true, then
-      if (k in O) {
+            // these will set pointer-events and cursor for nested elements
+            target_element.classList.add('anima-listeners-active');
 
-        // i. Let kValue be the result of calling the Get internal
-        // method of O with argument Pk.
-        kValue = O[k];
+            if (listener_specs.listener_type === "click") {
+                target_element.classList.add('anima-listeners-active-click');
+            }
 
-        // ii. Call the Call internal method of callback with T as
-        // the this value and argument list containing kValue, k, and O.
-        callback.call(T, kValue, k, O);
+            target_element.addEventListener(listener_specs.listener_type, event_handler_fixed, true);
+            cleaner = () => {
+                target_element.removeEventListener(listener_specs.listener_type, event_handler_fixed, true);
+                target_element.classList.remove('anima-listeners-active');
+                target_element.classList.remove('anima-listeners-active-click');
+            };
+        }
+        return cleaner;
+    }
+
+    function animate_elements(root_element, selector_to_properties_map, transition_props) {
+        Object.entries(selector_to_properties_map).forEach(([selector, prop_values_map]) => {
+            const element = selector === "" ? root_element : root_element.querySelector(selector);
+            if (element) {
+
+                const update_element_visibility = (visible) => {
+                    if (visible) {
+                        element.classList.toggle("anima-hidden", false)
+                    } else {
+                        element.classList.toggle("anima-hidden", true)
+                    }
+                };
+                update_element_visibility(prop_values_map['opacity'] > 0 || getComputedStyle(element).opacity > 0.001 );
+
+                // remove current animations, pausing elements in their current state
+                anime.remove(element);
+                let full_params = {
+                    ...transition_props, // transition properties: easing, duration...
+                    ...prop_values_map, // this element's animated properties: width? color? ...
+                    targets: [element],
+                    complete: () => update_element_visibility(getComputedStyle(element).opacity > 0.001)
+                };
+
+
+                // translate to anime js form
+                if (prop_values_map.hasOwnProperty("transform")) {
+                    const transform_val = full_params['transform'];
+                    delete full_params['transform'];
+                    transform_val.match(/\S*\([^)]*/g).map((x) => x.split('(')).forEach(([key, val]) => {
+                            full_params[key] = val;
+                        }
+                    );
+                }
+
+                //match css easing curves
+                if (full_params.hasOwnProperty("easing")) {
+                    const mapping = {
+                        // linear: 'linear',
+                        "ease-in-out": "cubicBezier(0.42, 0, 0.58, 1)",
+                        "ease-in": "cubicBezier(0.42, 0, 1, 1)",
+                        "ease-out": "cubicBezier(0, 0, 0.58, 1)",
+                    };
+                    let ease = full_params["easing"].trim();
+                    if (mapping.hasOwnProperty(ease)) {
+                        ease = mapping[ease];
+                    } else if (ease.startsWith('cubic-bezier')) {
+                        ease = ease.replace('cubic-bezier', 'cubicBezier');
+                    }
+                    full_params["easing"] = ease;
+                }
+
+                // "width", "height",
+                convert_to_matching_positioning(element, full_params);
+
+                Object.keys(sides_opposites).forEach((side) => {
+                    if (full_params.hasOwnProperty(side)) {
+                        const value = full_params[side];
+                        let {percent, pixel_offset} = normalize_to_percent_and_offset(value);
+                        if (Math.abs(percent) < 0.001) {
+                            full_params[side] = pixel_offset + 'px';
+                        } else {
+                            full_params[side] = percent + '%';
+                            full_params['margin-' + side] = pixel_offset + 'px';
+                        }
+                        element.style[sides_opposites[side]] = 'auto';
+                    }
+                });
+                containers.forEach((container) => {
+                    if (full_params.hasOwnProperty(container)) {
+                        const value = full_params[container];
+                        let {percent, pixel_offset} = normalize_to_percent_and_offset(value);
+                        if (Math.abs(percent) < 0.001) {
+                            full_params[container] = pixel_offset + 'px';
+                        } else {
+                            if (Math.abs(pixel_offset) > 0) {
+                                // convert pixels to additional percents
+                                percent += to_relative_percent(element, container, pixel_offset);
+                                percent = Math.max(0, percent);
+                            }
+                            full_params[container] = percent + '%';
+                        }
+                    }
+                });
+
+                anime(full_params); // anime js library globally available
+            }
+        })
+    }
+
+    function get_changed_properties_between_states(initial_element_state, from_state_element_state, to_state_element_state) {
+        /**
+         this function returns a mapping from elements affected by either states
+         to their properties in 'to_state'
+         e.g. {"#some_obj": {width: 100, height: 50}}
+         values changed by 'from_state' are reverted to initial values
+         **/
+        let selector_to_props = {};
+
+        // set all old state properties back to initial
+        Object.entries(from_state_element_state).forEach(([selector, properties]) => {
+            selector_to_props[selector] = selector_to_props[selector] || {};
+            Object.entries(properties).forEach(([property, value]) => {
+                selector_to_props[selector][property] = initial_element_state[selector][property];
+            });
+        });
+
+        // override with new state properties
+        Object.entries(to_state_element_state).forEach(([selector, properties]) => {
+            selector_to_props[selector] = selector_to_props[selector] || {};
+            Object.entries(properties).forEach(([property, value]) => {
+                selector_to_props[selector][property] = value;
+            });
+        });
+
+        return selector_to_props;
+    }
+
+
+    function transitioning_to_state(root_element, initial_properties, states_flow, now_state_name, transition_animation_time) {
+        /**
+         * called when a changing to a new state
+         * registers listeners such as on_click, timers...
+         * recursively calls itself and remove listeners when a listener is fired
+         */
+        const new_state_flow = states_flow[now_state_name];
+
+        // set up new listeners
+        let listener_cleanup_callbacks = [];
+
+        for (const listener_specs of new_state_flow.listeners) {
+
+            // this function is only called when the listener is fired
+            function on_listener_run() {
+
+                // remove all current listeners
+                listener_cleanup_callbacks.forEach(callback => callback());
+                listener_cleanup_callbacks = [];
+
+                const next_state_name = listener_specs.change_to_state;
+
+
+                const this_state_element_state = states_flow[now_state_name].overrides;
+                const next_state_element_state = states_flow[next_state_name].overrides;
+
+                // get all animated properties between the two states
+                let element_selector_to_changed_properties = get_changed_properties_between_states(initial_properties, this_state_element_state, next_state_element_state);
+
+
+                let longest_animation_time_ms = 0;
+
+                Object.entries(listener_specs.animations).forEach(([selector, animation_specs]) => {
+                    let filtered_props = {};
+                    if (element_selector_to_changed_properties.hasOwnProperty(selector)) {
+                        filtered_props[selector] = element_selector_to_changed_properties[selector];
+                        longest_animation_time_ms = Math.max(longest_animation_time_ms, animation_specs.delay + animation_specs.duration);
+                        animate_elements(root_element, filtered_props, animation_specs)
+                    }
+                });
+
+                transitioning_to_state(root_element, initial_properties, states_flow, next_state_name, longest_animation_time_ms);
+            }
+
+            let final_listener_specs = {...listener_specs};
+            if (listener_specs.listener_type === 'timer') {
+                // timers should start ticking after animation is over
+                final_listener_specs.delay += transition_animation_time;
+            }
+            const cleanup_callback = setup_listener(root_element, final_listener_specs, on_listener_run);
+            listener_cleanup_callbacks.push(cleanup_callback);
+        }
+    }
+
+
+    function run_when_doc_ready(fn) {
+
+        // make sure anime js is loaded and available globally
+        if (!document.getElementById('anime-js-script')) {
+            let animejs_element = document.createElement('script');
+            animejs_element.id = "anime-js-script";
+            animejs_element.setAttribute('src', 'https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js');
+            animejs_element.setAttribute('integrity', 'sha256-98Q574VkbV+PkxXCKSgL6jVq9mrVbS7uCdA+vt0sLS8=');
+            animejs_element.setAttribute('crossorigin', 'anonymous');
+            document.head.appendChild(animejs_element);
+        }
+        if (window.anime === undefined) {
+            setTimeout(() => run_when_doc_ready(fn), 50);
+            return;
+        }
+
+        // see if DOM is already available
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            // call on next available tick
+            setTimeout(fn, 1);
+        } else {
+            document.addEventListener("DOMContentLoaded", fn);
+        }
+    }
+
+    function load_initial_values(anima_components) {
+        anima_components.forEach((anima_component) => {
+            const root_element = document.querySelector(anima_component.root_element);
+            const states_flow = anima_component.states_flow;
+            const initial_state_name = anima_component.initial_state_name;
+            // const initial_properties = anima_component.initial_properties;
+
+
+            let initial_properties = {};
+            Object.values(anima_component.states_flow).forEach((state_spec) => {
+                Object.entries(state_spec.overrides).forEach(([selector, properties]) => {
+                    initial_properties[selector] = initial_properties[selector] || {};
+                    const element = selector === "" ? root_element : root_element.querySelector(selector);
+                    Object.keys(properties).forEach((property) => {
+                        initial_properties[selector][property] = element.style[property] ||
+                            property === 'transform' && 'rotate(0deg)' ||
+                            window.getComputedStyle(element)[property];
+                    })
+                });
+            });
+            // set properties to first state
+            Object.entries(anima_component.states_flow[initial_state_name].overrides).forEach(([selector, properties]) => {
+                const element = selector === "" ? root_element : root_element.querySelector(selector);
+                animate_elements(element, {"": properties}, {duration: 0})
+            });
+            transitioning_to_state(root_element, initial_properties, states_flow, initial_state_name, 0);
+        });
+        document.querySelectorAll('.anima-not-ready').forEach((x) => x.classList.remove('anima-not-ready'));
+    }
+
+    run_when_doc_ready(() => load_initial_values(anima_components));
+
+    // each of these describes a timeline 
+    const anima_components = [
+  {
+    "initial_state_name": "keyframe1", 
+    "root_element": ".heroleft", 
+    "states_flow": {
+      "keyframe1": {
+        "listeners": [
+          {
+            "animations": {
+              ".blackdot1": {
+                "delay": 400, 
+                "duration": 400, 
+                "easing": "ease-in-out"
+              }, 
+              ".blackdot2": {
+                "delay": 400, 
+                "duration": 600, 
+                "easing": "ease-in-out"
+              }, 
+              ".blackdot3": {
+                "delay": 400, 
+                "duration": 800, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot1": {
+                "delay": 400, 
+                "duration": 400, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot2": {
+                "delay": 400, 
+                "duration": 600, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot3": {
+                "delay": 400, 
+                "duration": 800, 
+                "easing": "ease-in-out"
+              }, 
+              ".line1": {
+                "delay": 0, 
+                "duration": 800, 
+                "easing": "ease-in-out"
+              }, 
+              ".line10": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line11": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line12": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line13": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line14": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line15": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line16": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line17": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line18": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line19": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line2": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line20": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line21": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line22": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line3": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line4": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line5": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line6": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line7": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line8": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line9": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }
+            }, 
+            "change_to_state": "keyframe2", 
+            "delay": 0, 
+            "listener_type": "timer"
+          }
+        ], 
+        "overrides": {
+          ".bluedot1": {
+            "opacity": "0.0", 
+            "top": "173px"
+          }, 
+          ".bluedot2": {
+            "opacity": "0.0", 
+            "top": "173px"
+          }, 
+          ".bluedot3": {
+            "opacity": "0.0", 
+            "top": "173px"
+          }, 
+          ".line1": {
+            "opacity": "0.0"
+          }, 
+          ".line10": {
+            "opacity": "0.0"
+          }, 
+          ".line11": {
+            "opacity": "0.0"
+          }, 
+          ".line12": {
+            "opacity": "0.0"
+          }, 
+          ".line13": {
+            "opacity": "0.0"
+          }, 
+          ".line14": {
+            "opacity": "0.0"
+          }, 
+          ".line15": {
+            "opacity": "0.0"
+          }, 
+          ".line16": {
+            "opacity": "0.0"
+          }, 
+          ".line17": {
+            "opacity": "0.0"
+          }, 
+          ".line18": {
+            "opacity": "0.0"
+          }, 
+          ".line19": {
+            "opacity": "0.0"
+          }, 
+          ".line2": {
+            "opacity": "0.0"
+          }, 
+          ".line20": {
+            "opacity": "0.0"
+          }, 
+          ".line21": {
+            "opacity": "0.0"
+          }, 
+          ".line22": {
+            "opacity": "0.0"
+          }, 
+          ".line3": {
+            "opacity": "0.0"
+          }, 
+          ".line4": {
+            "opacity": "0.0"
+          }, 
+          ".line5": {
+            "opacity": "0.0"
+          }, 
+          ".line6": {
+            "opacity": "0.0"
+          }, 
+          ".line7": {
+            "opacity": "0.0"
+          }, 
+          ".line8": {
+            "opacity": "0.0"
+          }, 
+          ".line9": {
+            "opacity": "0.0"
+          }
+        }
+      }, 
+      "keyframe2": {
+        "listeners": [
+          {
+            "animations": {
+              ".blackdot1": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".blackdot2": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".blackdot3": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot1": {
+                "delay": 0, 
+                "duration": 400, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot2": {
+                "delay": 0, 
+                "duration": 600, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot3": {
+                "delay": 0, 
+                "duration": 800, 
+                "easing": "ease-in-out"
+              }, 
+              ".line1": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line10": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line11": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line12": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line13": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line14": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line15": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line16": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line17": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line18": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line19": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line2": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line20": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line21": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line22": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line3": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line4": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line5": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line6": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line7": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line8": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line9": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }
+            }, 
+            "change_to_state": "keyframe3", 
+            "delay": 0, 
+            "listener_type": "timer"
+          }
+        ], 
+        "overrides": {
+          ".blackdot1": {
+            "opacity": "0.0", 
+            "top": "150px"
+          }, 
+          ".blackdot2": {
+            "bottom": "18.97%", 
+            "opacity": "0.0"
+          }, 
+          ".blackdot3": {
+            "bottom": "18.97%", 
+            "opacity": "0.0"
+          }, 
+          ".bluedot1": {
+            "top": "150px"
+          }, 
+          ".bluedot2": {
+            "top": "150px"
+          }, 
+          ".bluedot3": {
+            "top": "150px"
+          }, 
+          ".line1": {
+            "opacity": "0.0"
+          }, 
+          ".line10": {
+            "opacity": "0.0"
+          }, 
+          ".line11": {
+            "opacity": "0.0"
+          }, 
+          ".line12": {
+            "opacity": "0.0"
+          }, 
+          ".line13": {
+            "opacity": "0.0"
+          }, 
+          ".line14": {
+            "opacity": "0.0"
+          }, 
+          ".line15": {
+            "opacity": "0.0"
+          }, 
+          ".line16": {
+            "opacity": "0.0"
+          }, 
+          ".line17": {
+            "opacity": "0.0"
+          }, 
+          ".line18": {
+            "opacity": "0.0"
+          }, 
+          ".line19": {
+            "opacity": "0.0"
+          }, 
+          ".line2": {
+            "opacity": "0.0"
+          }, 
+          ".line20": {
+            "opacity": "0.0"
+          }, 
+          ".line21": {
+            "opacity": "0.0"
+          }, 
+          ".line22": {
+            "opacity": "0.0"
+          }, 
+          ".line3": {
+            "opacity": "0.0"
+          }, 
+          ".line4": {
+            "opacity": "0.0"
+          }, 
+          ".line5": {
+            "opacity": "0.0"
+          }, 
+          ".line6": {
+            "opacity": "0.0"
+          }, 
+          ".line7": {
+            "opacity": "0.0"
+          }, 
+          ".line8": {
+            "opacity": "0.0"
+          }, 
+          ".line9": {
+            "opacity": "0.0"
+          }
+        }
+      }, 
+      "keyframe3": {
+        "listeners": [
+          {
+            "animations": {
+              ".blackdot1": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".blackdot2": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".blackdot3": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot1": {
+                "delay": 0, 
+                "duration": 400, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot2": {
+                "delay": 0, 
+                "duration": 600, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot3": {
+                "delay": 0, 
+                "duration": 800, 
+                "easing": "ease-in-out"
+              }, 
+              ".line1": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line10": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line11": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line12": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line13": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line14": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line15": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line16": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line17": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line18": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line19": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line2": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line20": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line21": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line22": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line3": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line4": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line5": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line6": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line7": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line8": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line9": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }
+            }, 
+            "change_to_state": "keyframe4", 
+            "delay": 0, 
+            "listener_type": "timer"
+          }
+        ], 
+        "overrides": {
+          ".blackdot1": {
+            "opacity": "0.0", 
+            "top": "144px"
+          }, 
+          ".blackdot2": {
+            "bottom": "22.05%", 
+            "opacity": "0.0"
+          }, 
+          ".blackdot3": {
+            "bottom": "22.05%", 
+            "opacity": "0.0"
+          }, 
+          ".bluedot1": {
+            "top": "173px"
+          }, 
+          ".bluedot2": {
+            "top": "173px"
+          }, 
+          ".bluedot3": {
+            "top": "173px"
+          }, 
+          ".line1": {
+            "opacity": "0.0"
+          }, 
+          ".line10": {
+            "opacity": "0.0"
+          }, 
+          ".line11": {
+            "opacity": "0.0"
+          }, 
+          ".line12": {
+            "opacity": "0.0"
+          }, 
+          ".line13": {
+            "opacity": "0.0"
+          }, 
+          ".line14": {
+            "opacity": "0.0"
+          }, 
+          ".line15": {
+            "opacity": "0.0"
+          }, 
+          ".line16": {
+            "opacity": "0.0"
+          }, 
+          ".line17": {
+            "opacity": "0.0"
+          }, 
+          ".line18": {
+            "opacity": "0.0"
+          }, 
+          ".line19": {
+            "opacity": "0.0"
+          }, 
+          ".line2": {
+            "opacity": "0.0"
+          }, 
+          ".line20": {
+            "opacity": "0.0"
+          }, 
+          ".line21": {
+            "opacity": "0.0"
+          }, 
+          ".line22": {
+            "opacity": "0.0"
+          }, 
+          ".line3": {
+            "opacity": "0.0"
+          }, 
+          ".line4": {
+            "opacity": "0.0"
+          }, 
+          ".line5": {
+            "opacity": "0.0"
+          }, 
+          ".line6": {
+            "opacity": "0.0"
+          }, 
+          ".line7": {
+            "opacity": "0.0"
+          }, 
+          ".line8": {
+            "opacity": "0.0"
+          }, 
+          ".line9": {
+            "opacity": "0.0"
+          }
+        }
+      }, 
+      "keyframe4": {
+        "listeners": [
+          {
+            "animations": {
+              ".blackdot1": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".blackdot2": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".blackdot3": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot1": {
+                "delay": 0, 
+                "duration": 400, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot2": {
+                "delay": 0, 
+                "duration": 600, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot3": {
+                "delay": 0, 
+                "duration": 800, 
+                "easing": "ease-in-out"
+              }, 
+              ".line1": {
+                "delay": 400, 
+                "duration": 400, 
+                "easing": "ease-in-out"
+              }, 
+              ".line10": {
+                "delay": 1600, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line11": {
+                "delay": 1700, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line12": {
+                "delay": 1800, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line13": {
+                "delay": 1900, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line14": {
+                "delay": 2000, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line15": {
+                "delay": 2100, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line16": {
+                "delay": 2300, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line17": {
+                "delay": 2200, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line18": {
+                "delay": 2400, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line19": {
+                "delay": 2500, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line2": {
+                "delay": 700, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line20": {
+                "delay": 2600, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line21": {
+                "delay": 2700, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line22": {
+                "delay": 2800, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line3": {
+                "delay": 900, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line4": {
+                "delay": 1000, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line5": {
+                "delay": 1100, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line6": {
+                "delay": 1200, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line7": {
+                "delay": 1300, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line8": {
+                "delay": 1400, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }, 
+              ".line9": {
+                "delay": 1500, 
+                "duration": 500, 
+                "easing": "ease-in-out"
+              }
+            }, 
+            "change_to_state": "keyframe5", 
+            "delay": 0, 
+            "listener_type": "timer"
+          }
+        ], 
+        "overrides": {
+          ".blackdot1": {
+            "opacity": "0.0", 
+            "top": "144px"
+          }, 
+          ".blackdot2": {
+            "bottom": "22.05%", 
+            "opacity": "0.0"
+          }, 
+          ".blackdot3": {
+            "bottom": "22.05%", 
+            "opacity": "0.0"
+          }, 
+          ".bluedot1": {
+            "top": "150px"
+          }, 
+          ".bluedot2": {
+            "top": "150px"
+          }, 
+          ".bluedot3": {
+            "top": "150px"
+          }, 
+          ".line1": {
+            "height": "6px", 
+            "opacity": "0.0", 
+            "top": "150px"
+          }, 
+          ".line10": {
+            "height": "16px", 
+            "opacity": "0.0"
+          }, 
+          ".line11": {
+            "height": "10px", 
+            "opacity": "0.0"
+          }, 
+          ".line12": {
+            "height": "6px", 
+            "opacity": "0.0"
+          }, 
+          ".line13": {
+            "height": "4px", 
+            "opacity": "0.0"
+          }, 
+          ".line14": {
+            "height": "6px", 
+            "opacity": "0.0"
+          }, 
+          ".line15": {
+            "height": "8px", 
+            "opacity": "0.0"
+          }, 
+          ".line16": {
+            "height": "3px", 
+            "opacity": "0.0"
+          }, 
+          ".line17": {
+            "height": "2px", 
+            "opacity": "0.0"
+          }, 
+          ".line18": {
+            "height": "7px", 
+            "opacity": "0.0"
+          }, 
+          ".line19": {
+            "height": "10px", 
+            "opacity": "0.0"
+          }, 
+          ".line2": {
+            "height": "6px", 
+            "opacity": "0.0"
+          }, 
+          ".line20": {
+            "height": "6px", 
+            "opacity": "0.0"
+          }, 
+          ".line21": {
+            "height": "4px", 
+            "opacity": "0.0"
+          }, 
+          ".line22": {
+            "height": "3px", 
+            "opacity": "0.0"
+          }, 
+          ".line3": {
+            "bottom": "17.44%", 
+            "height": "5.13%", 
+            "opacity": "0.0"
+          }, 
+          ".line4": {
+            "bottom": "16.92%", 
+            "height": "8.21%", 
+            "opacity": "0.0"
+          }, 
+          ".line5": {
+            "bottom": "17.44%", 
+            "height": "5.13%", 
+            "opacity": "0.0"
+          }, 
+          ".line6": {
+            "bottom": "16.92%", 
+            "height": "3.08%", 
+            "opacity": "0.0"
+          }, 
+          ".line7": {
+            "bottom": "16.41%", 
+            "height": "2.05%", 
+            "opacity": "0.0"
+          }, 
+          ".line8": {
+            "bottom": "16.92%", 
+            "height": "3.08%", 
+            "opacity": "0.0"
+          }, 
+          ".line9": {
+            "height": "10px", 
+            "opacity": "0.0"
+          }
+        }
+      }, 
+      "keyframe5": {
+        "listeners": [
+          {
+            "animations": {
+              ".blackdot1": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".blackdot2": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".blackdot3": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot1": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot2": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot3": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line1": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line10": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line11": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line12": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line13": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line14": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line15": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line16": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line17": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line18": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line19": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line2": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line20": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line21": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line22": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line3": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line4": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line5": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line6": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line7": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line8": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line9": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }
+            }, 
+            "change_to_state": "keyframe6", 
+            "delay": 0, 
+            "listener_type": "timer"
+          }
+        ], 
+        "overrides": {
+          ".blackdot1": {
+            "opacity": "0.0", 
+            "top": "144px"
+          }, 
+          ".blackdot2": {
+            "bottom": "22.05%", 
+            "opacity": "0.0"
+          }, 
+          ".blackdot3": {
+            "bottom": "22.05%", 
+            "opacity": "0.0"
+          }, 
+          ".bluedot1": {
+            "opacity": "0.0", 
+            "top": "150px"
+          }, 
+          ".bluedot2": {
+            "opacity": "0.0", 
+            "top": "150px"
+          }, 
+          ".bluedot3": {
+            "height": "6px", 
+            "left": "255px", 
+            "opacity": "0.0", 
+            "top": "150px", 
+            "width": "1px"
+          }, 
+          ".line1": {
+            "top": "150px", 
+            "width": "3px"
+          }, 
+          ".line10": {
+            "width": "3px"
+          }, 
+          ".line11": {
+            "width": "3px"
+          }, 
+          ".line12": {
+            "width": "3px"
+          }, 
+          ".line13": {
+            "width": "3px"
+          }, 
+          ".line14": {
+            "width": "3px"
+          }, 
+          ".line15": {
+            "width": "3px"
+          }, 
+          ".line16": {
+            "width": "3px"
+          }, 
+          ".line17": {
+            "width": "3px"
+          }, 
+          ".line18": {
+            "width": "3px"
+          }, 
+          ".line19": {
+            "width": "3px"
+          }, 
+          ".line2": {
+            "width": "3px"
+          }, 
+          ".line20": {
+            "width": "3px"
+          }, 
+          ".line21": {
+            "width": "3px"
+          }, 
+          ".line22": {
+            "width": "3px"
+          }, 
+          ".line3": {
+            "right": "35.70%", 
+            "width": "0.71%"
+          }, 
+          ".line4": {
+            "right": "33.81%", 
+            "width": "0.71%"
+          }, 
+          ".line5": {
+            "right": "32.15%", 
+            "width": "0.71%"
+          }, 
+          ".line6": {
+            "right": "30.50%", 
+            "width": "0.71%"
+          }, 
+          ".line7": {
+            "right": "28.84%", 
+            "width": "0.71%"
+          }, 
+          ".line8": {
+            "right": "27.19%", 
+            "width": "0.71%"
+          }, 
+          ".line9": {
+            "width": "3px"
+          }
+        }
+      }, 
+      "keyframe6": {
+        "listeners": [
+          {
+            "animations": {
+              ".blackdot1": {
+                "delay": 0, 
+                "duration": 400, 
+                "easing": "ease-in-out"
+              }, 
+              ".blackdot2": {
+                "delay": 0, 
+                "duration": 600, 
+                "easing": "ease-in-out"
+              }, 
+              ".blackdot3": {
+                "delay": 0, 
+                "duration": 800, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot1": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot2": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".bluedot3": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line1": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line10": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line11": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line12": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line13": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line14": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line15": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line16": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line17": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line18": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line19": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line2": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line20": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line21": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line22": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line3": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line4": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line5": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line6": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line7": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line8": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }, 
+              ".line9": {
+                "delay": 0, 
+                "duration": 200, 
+                "easing": "ease-in-out"
+              }
+            }, 
+            "change_to_state": "keyframe7", 
+            "delay": 0, 
+            "listener_type": "timer"
+          }
+        ], 
+        "overrides": {
+          ".blackdot1": {
+            "opacity": "0.0"
+          }, 
+          ".blackdot2": {
+            "opacity": "0.0"
+          }, 
+          ".blackdot3": {
+            "opacity": "0.0"
+          }, 
+          ".bluedot1": {
+            "opacity": "0.0", 
+            "top": "150px"
+          }, 
+          ".bluedot2": {
+            "opacity": "0.0", 
+            "top": "150px"
+          }, 
+          ".bluedot3": {
+            "height": "6px", 
+            "left": "255px", 
+            "opacity": "0.0", 
+            "top": "150px", 
+            "width": "1px"
+          }, 
+          ".line1": {
+            "opacity": "0.0", 
+            "top": "150px", 
+            "width": "3px"
+          }, 
+          ".line10": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line11": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line12": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line13": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line14": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line15": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line16": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line17": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line18": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line19": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line2": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line20": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line21": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line22": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line3": {
+            "opacity": "0.0", 
+            "right": "35.70%", 
+            "width": "0.71%"
+          }, 
+          ".line4": {
+            "opacity": "0.0", 
+            "right": "33.81%", 
+            "width": "0.71%"
+          }, 
+          ".line5": {
+            "opacity": "0.0", 
+            "right": "32.15%", 
+            "width": "0.71%"
+          }, 
+          ".line6": {
+            "opacity": "0.0", 
+            "right": "30.50%", 
+            "width": "0.71%"
+          }, 
+          ".line7": {
+            "opacity": "0.0", 
+            "right": "28.84%", 
+            "width": "0.71%"
+          }, 
+          ".line8": {
+            "opacity": "0.0", 
+            "right": "27.19%", 
+            "width": "0.71%"
+          }, 
+          ".line9": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }
+        }
+      }, 
+      "keyframe7": {
+        "listeners": [
+          {
+            "animations": {
+              ".blackdot1": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".blackdot2": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".blackdot3": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".bluedot1": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".bluedot2": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".bluedot3": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line1": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line10": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line11": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line12": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line13": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line14": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line15": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line16": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line17": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line18": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line19": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line2": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line20": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line21": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line22": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line3": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line4": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line5": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line6": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line7": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line8": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }, 
+              ".line9": {
+                "delay": 0, 
+                "duration": 0, 
+                "easing": "linear"
+              }
+            }, 
+            "change_to_state": "keyframe1", 
+            "delay": 0, 
+            "listener_type": "timer"
+          }
+        ], 
+        "overrides": {
+          ".bluedot1": {
+            "opacity": "0.0", 
+            "top": "150px"
+          }, 
+          ".bluedot2": {
+            "opacity": "0.0", 
+            "top": "150px"
+          }, 
+          ".bluedot3": {
+            "height": "6px", 
+            "left": "255px", 
+            "opacity": "0.0", 
+            "top": "150px", 
+            "width": "1px"
+          }, 
+          ".line1": {
+            "opacity": "0.0", 
+            "top": "150px", 
+            "width": "3px"
+          }, 
+          ".line10": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line11": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line12": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line13": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line14": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line15": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line16": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line17": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line18": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line19": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line2": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line20": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line21": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line22": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }, 
+          ".line3": {
+            "opacity": "0.0", 
+            "right": "35.70%", 
+            "width": "0.71%"
+          }, 
+          ".line4": {
+            "opacity": "0.0", 
+            "right": "33.81%", 
+            "width": "0.71%"
+          }, 
+          ".line5": {
+            "opacity": "0.0", 
+            "right": "32.15%", 
+            "width": "0.71%"
+          }, 
+          ".line6": {
+            "opacity": "0.0", 
+            "right": "30.50%", 
+            "width": "0.71%"
+          }, 
+          ".line7": {
+            "opacity": "0.0", 
+            "right": "28.84%", 
+            "width": "0.71%"
+          }, 
+          ".line8": {
+            "opacity": "0.0", 
+            "right": "27.19%", 
+            "width": "0.71%"
+          }, 
+          ".line9": {
+            "opacity": "0.0", 
+            "width": "3px"
+          }
+        }
       }
-      // d. Increase k by 1.
-      k++;
-    }
-    // 8. return undefined.
-  };
-}
-
-function toArray(obj) {
-  var array = [];
-  // iterate backwards ensuring that length is an UInt32
-  for (var i = obj.length >>> 0; i--;) {
-    array[i] = obj[i];
-  }
-  return array;
-}
-
-function addClass (object, className) {
-  object.classList ? object.classList.add(className) : object.className += ' ' + className;
-}
-
-function removeAllClassesButFirst (component, skipClass) {
-  var classList = component.classList;
-  var componentClass = classList.item(0);
-  var toRemove = [];
-  var beforeComponent = true;
-  toArray(classList).forEach(function(className) {
-    beforeComponent = beforeComponent && className != 'component'
-    if (className != skipClass && className != componentClass && className != 'component' && !beforeComponent) {
-      toRemove.push(className);
-    }
-  });
-  toRemove.forEach(function(className) {
-    classList.remove(className);
-  });
-}
-
-function applyState (component, stateClass) {
-  var componentClass = component.classList.item(0);
-  component.className = componentClass;
-  component.classList.add(stateClass);
-}
-
-function isCurrentState (component, state) {
-  var classList = component.classList;
-  var rv = false;
-  toArray(classList).forEach(function (className) {
-    if (className.endsWith(state)) {
-      rv = true;
-    }
-  })
-  return rv;
-}
-
-function whichTransitionEvent(){
-  var t,
-      el = document.createElement("fakeelement");
-
-  var transitions = {
-    "transition"      : "transitionend",
-    "OTransition"     : "oTransitionEnd",
-    "MozTransition"   : "transitionend",
-    "WebkitTransition": "webkitTransitionEnd"
-  }
-
-  for (t in transitions){
-    if (el.style[t] !== undefined){
-      return transitions[t];
     }
   }
-}
-
-
-var transitionEvent = whichTransitionEvent();
-
-// Javascript for component WaveMoving
-// Longest animation for Transition 1 is this;group61;line13
-// Transition 1: From keyframe1 to keyframe2
-
-function clickWaveMoving1Handler(event) {
-  var component = document.querySelector('.wavemoving');
-  if (isCurrentState(component, 'keyframe1')) {
-    try {
-    //  console.log('Listener for event: click triggered. State: keyframe1');
-      setTimeout(function() {
-        var component = document.querySelector('.wavemoving');
-        component.addEventListener(transitionEvent, transitionWaveMovingkeyframe1tokeyframe2EndedHandler);
-        removeAllClassesButFirst(component, 'keyframe1-to-keyframe2');
-        addClass(component, 'keyframe2');
-        addClass(component, 'keyframe1-to-keyframe2');
-      }, 0);
-    }
-    catch (e) {
-      console.log(e)
-    }
-  }
-}
-
-function transitionWaveMovingkeyframe1tokeyframe2EndedHandler(event) {
-  
-  if (event.target.className.trim() == 'line13' ||
-      event.target.className.startsWith('line13 ')) {
-    var component = document.querySelector('.wavemoving');
-    component.removeEventListener(transitionEvent, transitionWaveMovingkeyframe1tokeyframe2EndedHandler);
-    //console.log('transitionWaveMovingkeyframe1tokeyframe2EndedHandler()');
-    // animationend
-    setTimeout(function () {
-      var component = document.querySelector('.wavemoving');
-      component.addEventListener(transitionEvent, transitionWaveMovingkeyframe2tokeyframe3EndedHandler);
-      removeAllClassesButFirst(component, 'keyframe2-to-keyframe3');
-      addClass(component, 'keyframe3');
-      addClass(component, 'keyframe2-to-keyframe3');
-    }, 0);
-  }
-}
-
-
-
-// Transition WaveMoving keyframe1-to-keyframe2 Event Listeners
-    // click keyframe1 keyframe1
-var component = document.querySelector('.wavemoving');
-component.addEventListener('click', clickWaveMoving1Handler);
-
-function resetWaveMoving() {
-    //console.log('reset');
-    var component = document.querySelector('.wavemoving');
-    if (!component) { return; }
-    component.addEventListener(transitionEvent, transitionWaveMovingkeyframe1tokeyframe2EndedHandler);
-
-    removeAllClassesButFirst(component, 'keyframe1-to-keyframe2');
-    addClass(component, 'keyframe2');
-    addClass(component, 'keyframe1-to-keyframe2');
-}
-
-
-
-// Javascript for component WaveMoving
-// Longest animation for Transition 2 is this;group61;line23
-// Transition 2: From keyframe2 to keyframe3
-
-
-function transitionWaveMovingkeyframe2tokeyframe3EndedHandler(event) {
-  
-  if (event.target.className.trim() == 'line23' ||
-      event.target.className.startsWith('line23 ')) {
-    var component = document.querySelector('.wavemoving');
-    component.removeEventListener(transitionEvent, transitionWaveMovingkeyframe2tokeyframe3EndedHandler);
-    //console.log('transitionWaveMovingkeyframe2tokeyframe3EndedHandler()');
-    // animationend
-    setTimeout(function () {
-      var component = document.querySelector('.wavemoving');
-      component.addEventListener(transitionEvent, transitionWaveMovingkeyframe3tokeyframe4EndedHandler);
-      removeAllClassesButFirst(component, 'keyframe3-to-keyframe4');
-      addClass(component, 'keyframe4');
-      addClass(component, 'keyframe3-to-keyframe4');
-    }, 0);
-  }
-}
-
-
-
-// Transition WaveMoving keyframe2-to-keyframe3 Event Listeners
-    // animationend keyframe2 keyframe1
-
-// Javascript for component WaveMoving
-// Longest animation for Transition 3 is this;group6;line1
-// Transition 3: From keyframe3 to keyframe4
-
-
-function transitionWaveMovingkeyframe3tokeyframe4EndedHandler(event) {
-  
-  if (event.target.className.trim() == 'line1' ||
-      event.target.className.startsWith('line1 ')) {
-    var component = document.querySelector('.wavemoving');
-    component.removeEventListener(transitionEvent, transitionWaveMovingkeyframe3tokeyframe4EndedHandler);
-    //console.log('transitionWaveMovingkeyframe3tokeyframe4EndedHandler()');
-    // animationend
-    setTimeout(function () {
-      var component = document.querySelector('.wavemoving');
-      component.addEventListener(transitionEvent, transitionWaveMovingkeyframe4tokeyframe5EndedHandler);
-      removeAllClassesButFirst(component, 'keyframe4-to-keyframe5');
-      addClass(component, 'keyframe5');
-      addClass(component, 'keyframe4-to-keyframe5');
-    }, 0);
-  }
-}
-
-
-
-// Transition WaveMoving keyframe3-to-keyframe4 Event Listeners
-    // animationend keyframe3 keyframe1
-
-// Javascript for component WaveMoving
-// Longest animation for Transition 4 is this;group61;line17
-// Transition 4: From keyframe4 to keyframe5
-
-
-function transitionWaveMovingkeyframe4tokeyframe5EndedHandler(event) {
-  
-  if (event.target.className.trim() == 'line17' ||
-      event.target.className.startsWith('line17 ')) {
-    var component = document.querySelector('.wavemoving');
-    component.removeEventListener(transitionEvent, transitionWaveMovingkeyframe4tokeyframe5EndedHandler);
-    //console.log('transitionWaveMovingkeyframe4tokeyframe5EndedHandler()');
-    // animationend
-    setTimeout(function () {
-      var component = document.querySelector('.wavemoving');
-      component.addEventListener(transitionEvent, transitionWaveMovingkeyframe5tokeyframe6EndedHandler);
-      removeAllClassesButFirst(component, 'keyframe5-to-keyframe6');
-      addClass(component, 'keyframe6');
-      addClass(component, 'keyframe5-to-keyframe6');
-    }, 0);
-  }
-}
-
-
-
-// Transition WaveMoving keyframe4-to-keyframe5 Event Listeners
-    // animationend keyframe4 keyframe1
-
-// Javascript for component WaveMoving
-// Longest animation for Transition 5 is this;group6;line4
-// Transition 5: From keyframe5 to keyframe6
-
-
-function transitionWaveMovingkeyframe5tokeyframe6EndedHandler(event) {
-  
-  if (event.target.className.trim() == 'line4' ||
-      event.target.className.startsWith('line4 ')) {
-    var component = document.querySelector('.wavemoving');
-    component.removeEventListener(transitionEvent, transitionWaveMovingkeyframe5tokeyframe6EndedHandler);
-    //console.log('transitionWaveMovingkeyframe5tokeyframe6EndedHandler()');
-    // animationend
-    setTimeout(function () {
-      var component = document.querySelector('.wavemoving');
-      component.addEventListener(transitionEvent, transitionWaveMovingkeyframe6tokeyframe7EndedHandler);
-      removeAllClassesButFirst(component, 'keyframe6-to-keyframe7');
-      addClass(component, 'keyframe7');
-      addClass(component, 'keyframe6-to-keyframe7');
-    }, 0);
-  }
-}
-
-
-
-// Transition WaveMoving keyframe5-to-keyframe6 Event Listeners
-    // animationend keyframe5 keyframe1
-
-// Javascript for component WaveMoving
-// Longest animation for Transition 6 is this;group6;line1
-// Transition 6: From keyframe6 to keyframe7
-
-
-function transitionWaveMovingkeyframe6tokeyframe7EndedHandler(event) {
-  
-  if (event.target.className.trim() == 'line1' ||
-      event.target.className.startsWith('line1 ')) {
-    var component = document.querySelector('.wavemoving');
-    component.removeEventListener(transitionEvent, transitionWaveMovingkeyframe6tokeyframe7EndedHandler);
-    //console.log('transitionWaveMovingkeyframe6tokeyframe7EndedHandler()');
-    // animationend
-    setTimeout(function () {
-      var component = document.querySelector('.wavemoving');
-      component.addEventListener(transitionEvent, transitionWaveMovingkeyframe7tokeyframe8EndedHandler);
-      removeAllClassesButFirst(component, 'keyframe7-to-keyframe8');
-      addClass(component, 'keyframe8');
-      addClass(component, 'keyframe7-to-keyframe8');
-    }, 0);
-  }
-}
-
-
-
-// Transition WaveMoving keyframe6-to-keyframe7 Event Listeners
-    // animationend keyframe6 keyframe1
-
-// Javascript for component WaveMoving
-// Longest animation for Transition 7 is this;group6;line1
-// Transition 7: From keyframe7 to keyframe8
-
-
-function transitionWaveMovingkeyframe7tokeyframe8EndedHandler(event) {
-  
-  if (event.target.className.trim() == 'line1' ||
-      event.target.className.startsWith('line1 ')) {
-    var component = document.querySelector('.wavemoving');
-    component.removeEventListener(transitionEvent, transitionWaveMovingkeyframe7tokeyframe8EndedHandler);
-    //console.log('transitionWaveMovingkeyframe7tokeyframe8EndedHandler()');
-    // animationend
-    setTimeout(function () {
-      var component = document.querySelector('.wavemoving');
-      component.addEventListener(transitionEvent, transitionWaveMovingkeyframe8tokeyframe9EndedHandler);
-      removeAllClassesButFirst(component, 'keyframe8-to-keyframe9');
-      addClass(component, 'keyframe9');
-      addClass(component, 'keyframe8-to-keyframe9');
-    }, 0);
-  }
-}
-
-
-
-// Transition WaveMoving keyframe7-to-keyframe8 Event Listeners
-    // animationend keyframe7 keyframe1
-
-// Javascript for component WaveMoving
-// Longest animation for Transition 8 is this;group6;line1
-// Transition 8: From keyframe8 to keyframe9
-
-
-function transitionWaveMovingkeyframe8tokeyframe9EndedHandler(event) {
-  
-  if (event.target.className.trim() == 'line1' ||
-      event.target.className.startsWith('line1 ')) {
-    var component = document.querySelector('.wavemoving');
-    component.removeEventListener(transitionEvent, transitionWaveMovingkeyframe8tokeyframe9EndedHandler);
-    //console.log('transitionWaveMovingkeyframe8tokeyframe9EndedHandler()');
-    // animationend
-    setTimeout(function () {
-      var component = document.querySelector('.wavemoving');
-      component.addEventListener(transitionEvent, transitionWaveMovingkeyframe9tokeyframe10EndedHandler);
-      removeAllClassesButFirst(component, 'keyframe9-to-keyframe10');
-      addClass(component, 'keyframe10');
-      addClass(component, 'keyframe9-to-keyframe10');
-    }, 0);
-  }
-}
-
-
-
-// Transition WaveMoving keyframe8-to-keyframe9 Event Listeners
-    // animationend keyframe8 keyframe1
-
-// Javascript for component WaveMoving
-// Longest animation for Transition 9 is this;group6;line1
-// Transition 9: From keyframe9 to keyframe10
-
-
-function transitionWaveMovingkeyframe9tokeyframe10EndedHandler(event) {
-  
-  if (event.target.className.trim() == 'line1' ||
-      event.target.className.startsWith('line1 ')) {
-    var component = document.querySelector('.wavemoving');
-    component.removeEventListener(transitionEvent, transitionWaveMovingkeyframe9tokeyframe10EndedHandler);
-    //console.log('transitionWaveMovingkeyframe9tokeyframe10EndedHandler()');
-    // animationend
-    setTimeout(function () {
-      var component = document.querySelector('.wavemoving');
-      component.addEventListener(transitionEvent, transitionWaveMovingkeyframe10tokeyframe11EndedHandler);
-      removeAllClassesButFirst(component, 'keyframe10-to-keyframe11');
-      addClass(component, 'keyframe11');
-      addClass(component, 'keyframe10-to-keyframe11');
-    }, 0);
-  }
-}
-
-
-
-// Transition WaveMoving keyframe9-to-keyframe10 Event Listeners
-    // animationend keyframe9 keyframe1
-
-// Javascript for component WaveMoving
-// Longest animation for Transition 10 is this;group6;line1
-// Transition 10: From keyframe10 to keyframe11
-
-
-function transitionWaveMovingkeyframe10tokeyframe11EndedHandler(event) {
-  
-  if (event.target.className.trim() == 'line1' ||
-      event.target.className.startsWith('line1 ')) {
-    var component = document.querySelector('.wavemoving');
-    component.removeEventListener(transitionEvent, transitionWaveMovingkeyframe10tokeyframe11EndedHandler);
-    //console.log('transitionWaveMovingkeyframe10tokeyframe11EndedHandler()');
-    // animationend
-    setTimeout(function () {
-      var component = document.querySelector('.wavemoving');
-      component.addEventListener(transitionEvent, transitionWaveMovingkeyframe11tokeyframe12EndedHandler);
-      removeAllClassesButFirst(component, 'keyframe11-to-keyframe12');
-      addClass(component, 'keyframe12');
-      addClass(component, 'keyframe11-to-keyframe12');
-    }, 0);
-  }
-}
-
-
-
-// Transition WaveMoving keyframe10-to-keyframe11 Event Listeners
-    // animationend keyframe10 keyframe1
-
-// Javascript for component WaveMoving
-// Longest animation for Transition 11 is this;group6;line1
-// Transition 11: From keyframe11 to keyframe12
-
-
-function transitionWaveMovingkeyframe11tokeyframe12EndedHandler(event) {
-  
-  if (event.target.className.trim() == 'line1' ||
-      event.target.className.startsWith('line1 ')) {
-    var component = document.querySelector('.wavemoving');
-    component.removeEventListener(transitionEvent, transitionWaveMovingkeyframe11tokeyframe12EndedHandler);
-    //console.log('transitionWaveMovingkeyframe11tokeyframe12EndedHandler()');
-    // animationend
-    setTimeout(function () {
-      var component = document.querySelector('.wavemoving');
-      component.addEventListener(transitionEvent, transitionWaveMovingkeyframe12tokeyframe13EndedHandler);
-      removeAllClassesButFirst(component, 'keyframe12-to-keyframe13');
-      addClass(component, 'keyframe13');
-      addClass(component, 'keyframe12-to-keyframe13');
-    }, 0);
-  }
-}
-
-
-
-// Transition WaveMoving keyframe11-to-keyframe12 Event Listeners
-    // animationend keyframe11 keyframe1
-
-// Javascript for component WaveMoving
-// Longest animation for Transition 12 is this;group6;line8
-// Transition 12: From keyframe12 to keyframe13
-
-
-function transitionWaveMovingkeyframe12tokeyframe13EndedHandler(event) {
-  
-  if (event.target.className.trim() == 'line8' ||
-      event.target.className.startsWith('line8 ')) {
-    var component = document.querySelector('.wavemoving');
-    component.removeEventListener(transitionEvent, transitionWaveMovingkeyframe12tokeyframe13EndedHandler);
-    //console.log('transitionWaveMovingkeyframe12tokeyframe13EndedHandler()');
-    // animationend
-    setTimeout(function () {
-      var component = document.querySelector('.wavemoving');
-      component.addEventListener(transitionEvent, transitionWaveMovingkeyframe13tokeyframe14EndedHandler);
-      removeAllClassesButFirst(component, 'keyframe13-to-keyframe14');
-      addClass(component, 'keyframe14');
-      addClass(component, 'keyframe13-to-keyframe14');
-    }, 0);
-  }
-}
-
-
-
-// Transition WaveMoving keyframe12-to-keyframe13 Event Listeners
-    // animationend keyframe12 keyframe1
-
-// Javascript for component WaveMoving
-// Longest animation for Transition 13 is this;group6;line1
-// Transition 13: From keyframe13 to keyframe14
-
-
-function transitionWaveMovingkeyframe13tokeyframe14EndedHandler(event) {
-  
-  if (event.target.className.trim() == 'line1' ||
-      event.target.className.startsWith('line1 ')) {
-    var component = document.querySelector('.wavemoving');
-    component.removeEventListener(transitionEvent, transitionWaveMovingkeyframe13tokeyframe14EndedHandler);
-    //console.log('transitionWaveMovingkeyframe13tokeyframe14EndedHandler()');
-    // animationend
-    setTimeout(function () {
-      var component = document.querySelector('.wavemoving');
-      component.addEventListener(transitionEvent, transitionWaveMovingkeyframe14tokeyframe15EndedHandler);
-      removeAllClassesButFirst(component, 'keyframe14-to-keyframe15');
-      addClass(component, 'keyframe15');
-      addClass(component, 'keyframe14-to-keyframe15');
-    }, 0);
-  }
-}
-
-
-
-// Transition WaveMoving keyframe13-to-keyframe14 Event Listeners
-    // animationend keyframe13 keyframe1
-
-// Javascript for component WaveMoving
-// Longest animation for Transition 14 is this;group6;line1
-// Transition 14: From keyframe14 to keyframe15
-
-
-function transitionWaveMovingkeyframe14tokeyframe15EndedHandler(event) {
-  
-  if (event.target.className.trim() == 'line1' ||
-      event.target.className.startsWith('line1 ')) {
-    var component = document.querySelector('.wavemoving');
-    component.removeEventListener(transitionEvent, transitionWaveMovingkeyframe14tokeyframe15EndedHandler);
-    //console.log('transitionWaveMovingkeyframe14tokeyframe15EndedHandler()');
-    // animationend
-    setTimeout(function () {
-      var component = document.querySelector('.wavemoving');
-      component.addEventListener(transitionEvent, transitionWaveMovingkeyframe15tokeyframe16EndedHandler);
-      removeAllClassesButFirst(component, 'keyframe15-to-keyframe16');
-      addClass(component, 'keyframe16');
-      addClass(component, 'keyframe15-to-keyframe16');
-    }, 0);
-  }
-}
-
-
-
-// Transition WaveMoving keyframe14-to-keyframe15 Event Listeners
-    // animationend keyframe14 keyframe1
-
-// Javascript for component WaveMoving
-// Longest animation for Transition 15 is this;group6;lineCopy2
-// Transition 15: From keyframe15 to keyframe16
-
-
-function transitionWaveMovingkeyframe15tokeyframe16EndedHandler(event) {
-  
-  if (event.target.className.trim() == 'linecopy2' ||
-      event.target.className.startsWith('linecopy2 ')) {
-    var component = document.querySelector('.wavemoving');
-    component.removeEventListener(transitionEvent, transitionWaveMovingkeyframe15tokeyframe16EndedHandler);
-    //console.log('transitionWaveMovingkeyframe15tokeyframe16EndedHandler()');
-    lastTransitionWaveMovingEndedHandler(event);
-  }
-}
-
-
-function lastTransitionWaveMovingEndedHandler(event) {
-  //console.log('lastTransitionWaveMovingEndedHandler()');
-  var component = document.querySelector('.wavemoving');
-  removeAllClassesButFirst(component, 'keyframe1');
-  addClass(component, 'keyframe1');
-  var event = new Event('click');
-  setTimeout(function() {
-    component.dispatchEvent(event);
-  }, 0);
-}
-
-
-// Transition WaveMoving keyframe15-to-keyframe16 Event Listeners
-    // animationend keyframe15 keyframe1
-
-
-// Start first animation transition of wavemoving
-(function() {
-    var component = document.querySelector('.wavemoving');
-    var event = new Event('click');
-    component.dispatchEvent(event);
+];
 })();
