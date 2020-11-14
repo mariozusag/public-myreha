@@ -21,11 +21,11 @@
 }
 
 .heroleft .blackdot3 {
-    background-color: rgba(255,255,255,0.0);  right: 38.53%;  bottom: 7.18%;  height: 4.10%;  width: 1.89%;  position: absolute;  margin: 0;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 173px;  height: 8px;  width: 8px;  position: absolute;  margin: 0;  left: 252px;  transform: rotate(0deg);
 }
 
 .heroleft .blackdot2 {
-    background-color: rgba(255,255,255,0.0);  right: 42.08%;  bottom: 7.18%;  height: 4.10%;  width: 1.89%;  position: absolute;  margin: 0;  transform: rotate(0deg);
+    background-color: rgba(255,255,255,0.0);  top: 173px;  height: 8px;  width: 8px;  position: absolute;  margin: 0;  left: 237px;  transform: rotate(0deg);
 }
 
 .heroleft .blackdot1 {

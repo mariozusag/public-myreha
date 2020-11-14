@@ -522,6 +522,15 @@
           }
         ], 
         "overrides": {
+          ".blackdot1": {
+            "opacity": "0.0"
+          }, 
+          ".blackdot2": {
+            "opacity": "0.0"
+          }, 
+          ".blackdot3": {
+            "opacity": "0.0"
+          }, 
           ".bluedot1": {
             "opacity": "0.0", 
             "top": "173px"
@@ -759,19 +768,28 @@
           }, 
           ".blackdot2": {
             "bottom": "18.97%", 
-            "opacity": "0.0"
+            "height": "4.10%", 
+            "opacity": "0.0", 
+            "right": "42.08%", 
+            "width": "1.89%"
           }, 
           ".blackdot3": {
             "bottom": "18.97%", 
-            "opacity": "0.0"
+            "height": "4.10%", 
+            "opacity": "0.0", 
+            "right": "38.53%", 
+            "width": "1.89%"
           }, 
           ".bluedot1": {
+            "opacity": "0.0", 
             "top": "150px"
           }, 
           ".bluedot2": {
+            "opacity": "0.0", 
             "top": "150px"
           }, 
           ".bluedot3": {
+            "opacity": "0.0", 
             "top": "150px"
           }, 
           ".line1": {
@@ -999,19 +1017,28 @@
           }, 
           ".blackdot2": {
             "bottom": "22.05%", 
-            "opacity": "0.0"
+            "height": "4.10%", 
+            "opacity": "0.0", 
+            "right": "42.08%", 
+            "width": "1.89%"
           }, 
           ".blackdot3": {
             "bottom": "22.05%", 
-            "opacity": "0.0"
+            "height": "4.10%", 
+            "opacity": "0.0", 
+            "right": "38.53%", 
+            "width": "1.89%"
           }, 
           ".bluedot1": {
+            "opacity": "0.0", 
             "top": "173px"
           }, 
           ".bluedot2": {
+            "opacity": "0.0", 
             "top": "173px"
           }, 
           ".bluedot3": {
+            "opacity": "0.0", 
             "top": "173px"
           }, 
           ".line1": {
@@ -1239,19 +1266,28 @@
           }, 
           ".blackdot2": {
             "bottom": "22.05%", 
-            "opacity": "0.0"
+            "height": "4.10%", 
+            "opacity": "0.0", 
+            "right": "42.08%", 
+            "width": "1.89%"
           }, 
           ".blackdot3": {
             "bottom": "22.05%", 
-            "opacity": "0.0"
+            "height": "4.10%", 
+            "opacity": "0.0", 
+            "right": "38.53%", 
+            "width": "1.89%"
           }, 
           ".bluedot1": {
+            "opacity": "0.0", 
             "top": "150px"
           }, 
           ".bluedot2": {
+            "opacity": "0.0", 
             "top": "150px"
           }, 
           ".bluedot3": {
+            "opacity": "0.0", 
             "top": "150px"
           }, 
           ".line1": {
@@ -1508,11 +1544,17 @@
           }, 
           ".blackdot2": {
             "bottom": "22.05%", 
-            "opacity": "0.0"
+            "height": "4.10%", 
+            "opacity": "0.0", 
+            "right": "42.08%", 
+            "width": "1.89%"
           }, 
           ".blackdot3": {
             "bottom": "22.05%", 
-            "opacity": "0.0"
+            "height": "4.10%", 
+            "opacity": "0.0", 
+            "right": "38.53%", 
+            "width": "1.89%"
           }, 
           ".bluedot1": {
             "opacity": "0.0", 
@@ -1605,278 +1647,6 @@
         }
       }, 
       "keyframe6": {
-        "listeners": [
-          {
-            "animations": {
-              ".blackdot1": {
-                "delay": 0, 
-                "duration": 400, 
-                "easing": "ease-in-out"
-              }, 
-              ".blackdot2": {
-                "delay": 0, 
-                "duration": 600, 
-                "easing": "ease-in-out"
-              }, 
-              ".blackdot3": {
-                "delay": 0, 
-                "duration": 800, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot1": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot2": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".bluedot3": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line1": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line10": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line11": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line12": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line13": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line14": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line15": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line16": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line17": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line18": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line19": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line2": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line20": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line21": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line22": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line3": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line4": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line5": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line6": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line7": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line8": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }, 
-              ".line9": {
-                "delay": 0, 
-                "duration": 200, 
-                "easing": "ease-in-out"
-              }
-            }, 
-            "change_to_state": "keyframe7", 
-            "delay": 0, 
-            "listener_type": "timer"
-          }
-        ], 
-        "overrides": {
-          ".blackdot1": {
-            "opacity": "0.0"
-          }, 
-          ".blackdot2": {
-            "opacity": "0.0"
-          }, 
-          ".blackdot3": {
-            "opacity": "0.0"
-          }, 
-          ".bluedot1": {
-            "opacity": "0.0", 
-            "top": "150px"
-          }, 
-          ".bluedot2": {
-            "opacity": "0.0", 
-            "top": "150px"
-          }, 
-          ".bluedot3": {
-            "height": "6px", 
-            "left": "255px", 
-            "opacity": "0.0", 
-            "top": "150px", 
-            "width": "1px"
-          }, 
-          ".line1": {
-            "opacity": "0.0", 
-            "top": "150px", 
-            "width": "3px"
-          }, 
-          ".line10": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line11": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line12": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line13": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line14": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line15": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line16": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line17": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line18": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line19": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line2": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line20": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line21": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line22": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }, 
-          ".line3": {
-            "opacity": "0.0", 
-            "right": "35.70%", 
-            "width": "0.71%"
-          }, 
-          ".line4": {
-            "opacity": "0.0", 
-            "right": "33.81%", 
-            "width": "0.71%"
-          }, 
-          ".line5": {
-            "opacity": "0.0", 
-            "right": "32.15%", 
-            "width": "0.71%"
-          }, 
-          ".line6": {
-            "opacity": "0.0", 
-            "right": "30.50%", 
-            "width": "0.71%"
-          }, 
-          ".line7": {
-            "opacity": "0.0", 
-            "right": "28.84%", 
-            "width": "0.71%"
-          }, 
-          ".line8": {
-            "opacity": "0.0", 
-            "right": "27.19%", 
-            "width": "0.71%"
-          }, 
-          ".line9": {
-            "opacity": "0.0", 
-            "width": "3px"
-          }
-        }
-      }, 
-      "keyframe7": {
         "listeners": [
           {
             "animations": {
@@ -2027,6 +1797,23 @@
           }
         ], 
         "overrides": {
+          ".blackdot1": {
+            "opacity": "0.0"
+          }, 
+          ".blackdot2": {
+            "bottom": "7.18%", 
+            "height": "4.10%", 
+            "opacity": "0.0", 
+            "right": "42.08%", 
+            "width": "1.89%"
+          }, 
+          ".blackdot3": {
+            "bottom": "7.18%", 
+            "height": "4.10%", 
+            "opacity": "0.0", 
+            "right": "38.53%", 
+            "width": "1.89%"
+          }, 
           ".bluedot1": {
             "opacity": "0.0", 
             "top": "150px"
