@@ -1,162 +1,163 @@
-.group * { box-sizing: border-box; }
 
-.group {
+.moving-wave-group * { box-sizing: border-box; }
+
+.moving-wave-group {
   overflow: hidden;  background-color: rgba(255,255,255,0.0);  width: 403px;  position: relative;  height: 62px;  transform: rotate(0deg);
 }
 
-.group .line2 {
+.moving-wave-group .line2 {
     background-color: rgba(255,255,255,0.0);  top: 23px;  height: 18px;  width: 5px;  position: absolute;  margin: 0;  left: -2px;  transform: rotate(0deg);
 }
 
-.group .a2 {
+.moving-wave-group .a2 {
     background-color: rgba(255,255,255,0.0);  top: 9px;  height: 45px;  width: 5px;  position: absolute;  margin: 0;  left: 8px;  transform: rotate(0deg);
 }
 
-.group .line3 {
+.moving-wave-group .line3 {
     background-color: rgba(255,255,255,0.0);  top: 2px;  height: 59px;  width: 5px;  position: absolute;  margin: 0;  left: 20px;  transform: rotate(0deg);
 }
 
-.group .line4 {
+.moving-wave-group .line4 {
     background-color: rgba(255,255,255,0.0);  top: -1px;  height: 65px;  width: 5px;  position: absolute;  margin: 0;  left: 30px;  transform: rotate(0deg);
 }
 
-.group .line5 {
+.moving-wave-group .line5 {
     background-color: rgba(255,255,255,0.0);  top: 2px;  height: 59px;  width: 5px;  position: absolute;  margin: 0;  left: 42px;  transform: rotate(0deg);
 }
 
-.group .line6 {
+.moving-wave-group .line6 {
     background-color: rgba(255,255,255,0.0);  top: 9px;  height: 45px;  width: 5px;  position: absolute;  margin: 0;  left: 52px;  transform: rotate(0deg);
 }
 
-.group .line7 {
+.moving-wave-group .line7 {
     background-color: rgba(255,255,255,0.0);  top: 23px;  height: 18px;  width: 5px;  position: absolute;  margin: 0;  left: 64px;  transform: rotate(0deg);
 }
 
-.group .a8 {
+.moving-wave-group .a8 {
     background-color: rgba(255,255,255,0.0);  top: 26px;  height: 12px;  width: 5px;  position: absolute;  margin: 0;  left: 74px;  transform: rotate(0deg);
 }
 
-.group .line8 {
+.moving-wave-group .line8 {
     background-color: rgba(255,255,255,0.0);  top: 23px;  height: 18px;  width: 5px;  position: absolute;  margin: 0;  left: 85px;  transform: rotate(0deg);
 }
 
-.group .line9 {
+.moving-wave-group .line9 {
     background-color: rgba(255,255,255,0.0);  top: 9px;  height: 45px;  width: 5px;  position: absolute;  margin: 0;  left: 96px;  transform: rotate(0deg);
 }
 
-.group .line10 {
+.moving-wave-group .line10 {
     background-color: rgba(255,255,255,0.0);  top: 2px;  height: 59px;  width: 5px;  position: absolute;  margin: 0;  left: 107px;  transform: rotate(0deg);
 }
 
-.group .line11 {
+.moving-wave-group .line11 {
     background-color: rgba(255,255,255,0.0);  top: -1px;  height: 65px;  width: 5px;  position: absolute;  margin: 0;  left: 118px;  transform: rotate(0deg);
 }
 
-.group .line12 {
+.moving-wave-group .line12 {
     background-color: rgba(255,255,255,0.0);  top: 2px;  height: 59px;  width: 5px;  position: absolute;  margin: 0;  left: 129px;  transform: rotate(0deg);
 }
 
-.group .line13 {
+.moving-wave-group .line13 {
     background-color: rgba(255,255,255,0.0);  top: 9px;  height: 45px;  width: 5px;  position: absolute;  margin: 0;  left: 140px;  transform: rotate(0deg);
 }
 
-.group .line14 {
+.moving-wave-group .line14 {
     background-color: rgba(255,255,255,0.0);  top: 23px;  height: 18px;  width: 5px;  position: absolute;  margin: 0;  left: 150px;  transform: rotate(0deg);
 }
 
-.group .line15 {
+.moving-wave-group .line15 {
     background-color: rgba(255,255,255,0.0);  top: 26px;  height: 12px;  width: 5px;  position: absolute;  margin: 0;  left: 160px;  transform: rotate(0deg);
 }
 
-.group .line16 {
+.moving-wave-group .line16 {
     background-color: rgba(255,255,255,0.0);  top: 23px;  height: 18px;  width: 5px;  position: absolute;  margin: 0;  left: 171px;  transform: rotate(0deg);
 }
 
-.group .line17 {
+.moving-wave-group .line17 {
     background-color: rgba(255,255,255,0.0);  top: 9px;  height: 45px;  width: 5px;  position: absolute;  margin: 0;  left: 181px;  transform: rotate(0deg);
 }
 
-.group .line18 {
+.moving-wave-group .line18 {
     background-color: rgba(255,255,255,0.0);  top: 1px;  height: 59px;  width: 5px;  position: absolute;  margin: 0;  left: 192px;  transform: rotate(0deg);
 }
 
-.group .line19 {
+.moving-wave-group .line19 {
     background-color: rgba(255,255,255,0.0);  top: -2px;  height: 65px;  width: 5px;  position: absolute;  margin: 0;  left: 202px;  transform: rotate(0deg);
 }
 
-.group .line20 {
+.moving-wave-group .line20 {
     background-color: rgba(255,255,255,0.0);  top: 1px;  height: 59px;  width: 5px;  position: absolute;  margin: 0;  left: 213px;  transform: rotate(0deg);
 }
 
-.group .line21 {
+.moving-wave-group .line21 {
     background-color: rgba(255,255,255,0.0);  top: 9px;  height: 45px;  width: 5px;  position: absolute;  margin: 0;  left: 223px;  transform: rotate(0deg);
 }
 
-.group .line22 {
+.moving-wave-group .line22 {
     background-color: rgba(255,255,255,0.0);  top: 21px;  height: 18px;  width: 5px;  position: absolute;  margin: 0;  left: 233px;  transform: rotate(0deg);
 }
 
-.group .c8 {
+.moving-wave-group .c8 {
     background-color: rgba(255,255,255,0.0);  top: 24px;  height: 12px;  width: 5px;  position: absolute;  margin: 0;  left: 244px;  transform: rotate(0deg);
 }
 
-.group .d1 {
+.moving-wave-group .d1 {
     background-color: rgba(255,255,255,0.0);  top: 21px;  height: 18px;  width: 5px;  position: absolute;  margin: 0;  left: 254px;  transform: rotate(0deg);
 }
 
-.group .d2 {
+.moving-wave-group .d2 {
     background-color: rgba(255,255,255,0.0);  top: 9px;  height: 45px;  width: 5px;  position: absolute;  margin: 0;  left: 265px;  transform: rotate(0deg);
 }
 
-.group .d3 {
+.moving-wave-group .d3 {
     background-color: rgba(255,255,255,0.0);  top: 2px;  height: 59px;  width: 5px;  position: absolute;  margin: 0;  left: 275px;  transform: rotate(0deg);
 }
 
-.group .d4 {
+.moving-wave-group .d4 {
     background-color: rgba(255,255,255,0.0);  top: -1px;  height: 65px;  width: 5px;  position: absolute;  margin: 0;  left: 285px;  transform: rotate(0deg);
 }
 
-.group .d5 {
+.moving-wave-group .d5 {
     background-color: rgba(255,255,255,0.0);  top: 2px;  height: 59px;  width: 5px;  position: absolute;  margin: 0;  left: 296px;  transform: rotate(0deg);
 }
 
-.group .d6 {
+.moving-wave-group .d6 {
     background-color: rgba(255,255,255,0.0);  top: 9px;  height: 45px;  width: 5px;  position: absolute;  margin: 0;  left: 306px;  transform: rotate(0deg);
 }
 
-.group .d7 {
+.moving-wave-group .d7 {
     background-color: rgba(255,255,255,0.0);  top: 23px;  height: 18px;  width: 5px;  position: absolute;  margin: 0;  left: 317px;  transform: rotate(0deg);
 }
 
-.group .d8 {
+.moving-wave-group .d8 {
     background-color: rgba(255,255,255,0.0);  top: 26px;  height: 12px;  width: 5px;  position: absolute;  margin: 0;  left: 327px;  transform: rotate(0deg);
 }
 
-.group .e1 {
+.moving-wave-group .e1 {
     background-color: rgba(255,255,255,0.0);  top: 23px;  height: 18px;  width: 5px;  position: absolute;  margin: 0;  left: 337px;  transform: rotate(0deg);
 }
 
-.group .e2 {
+.moving-wave-group .e2 {
     background-color: rgba(255,255,255,0.0);  top: 9px;  height: 45px;  width: 5px;  position: absolute;  margin: 0;  left: 348px;  transform: rotate(0deg);
 }
 
-.group .e3 {
+.moving-wave-group .e3 {
     background-color: rgba(255,255,255,0.0);  top: 1px;  height: 59px;  width: 5px;  position: absolute;  margin: 0;  left: 358px;  transform: rotate(0deg);
 }
 
-.group .e4 {
+.moving-wave-group .e4 {
     background-color: rgba(255,255,255,0.0);  top: -2px;  height: 65px;  width: 5px;  position: absolute;  margin: 0;  left: 369px;  transform: rotate(0deg);
 }
 
-.group .e5 {
+.moving-wave-group .e5 {
     background-color: rgba(255,255,255,0.0);  top: 1px;  height: 59px;  width: 5px;  position: absolute;  margin: 0;  left: 379px;  transform: rotate(0deg);
 }
 
-.group .e6 {
+.moving-wave-group .e6 {
     background-color: rgba(255,255,255,0.0);  top: 9px;  height: 45px;  width: 5px;  position: absolute;  margin: 0;  left: 390px;  transform: rotate(0deg);
 }
 
-.group .e7 {
+.moving-wave-group .e7 {
     background-color: rgba(255,255,255,0.0);  top: 21px;  height: 18px;  width: 5px;  position: absolute;  margin: 0;  left: 400px;  transform: rotate(0deg);
 }
 

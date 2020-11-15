@@ -369,7 +369,7 @@
     const anima_components = [
   {
     "initial_state_name": "keyframe1", 
-    "root_element": ".group", 
+    "root_element": ".moving-wave-group", 
     "states_flow": {
       "keyframe1": {
         "listeners": [
